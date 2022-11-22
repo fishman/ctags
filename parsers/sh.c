@@ -38,6 +38,7 @@ typedef enum {
 	K_FUNCTION,
 	K_SCRIPT,
 	K_HEREDOCLABEL,
+	K_VARIABLE,
 } shKind;
 
 typedef enum {
@@ -87,7 +88,9 @@ static roleDefinition ZshFunctionRoles [] = {
 	{ true, 's', "script", "script files",						\
 	  .referenceOnly = true, ATTACH_ROLES (SCRIPT_ROLES) },		\
 	{ true, 'h', "heredoc", "labels for here document",			\
-	  .referenceOnly = false, ATTACH_ROLES (HEREDOC_ROLES) }
+	  .referenceOnly = false, ATTACH_ROLES (HEREDOC_ROLES) },   \
+	{ true, 'v', "variable", "variables assigment (experimental)" }
+
 
 static kindDefinition ShKinds [] = {
 	SH_KINDS_COMMON(ShScriptRoles, ShHeredocRoles,),
@@ -456,6 +459,32 @@ static size_t handleZshKeyword (int keyword,
 	return vStringLength(token);
 }
 
+static bool handleVariableAssignment (vString *input)
+{
+	const char *base = vStringValue (input);
+	const char *cp = base;
+
+	while (*cp != '\0')
+	{
+		if (*cp == '=')
+		{
+			size_t len = cp - base;
+			if (len > 0)
+			{
+				vStringTruncate (input, len);
+				return true;
+			}
+			break;
+		}
+		else if ( ((cp == base)?
+				   isIdentChar0: isIdentChar) ((unsigned char)*cp) )
+			cp++;
+		else
+			break;
+	}
+	return false;
+}
+
 typedef bool (* checkCharFunc) (int);
 static void findShTagsCommon (size_t (* keyword_handler) (int,
 														  vString *,
@@ -653,8 +682,9 @@ static void findShTagsCommon (size_t (* keyword_handler) (int,
 			while (isspace ((int) *cp))
 				++cp;
 
-			if ((found_kind != K_SCRIPT)
-			    && *cp == '(')
+			if (found_kind == K_SCRIPT)
+				;				/* Do NOTHING */
+			else if (*cp == '(')
 			{
 				++cp;
 				while (isspace ((int) *cp))
@@ -680,6 +710,9 @@ static void findShTagsCommon (size_t (* keyword_handler) (int,
 					++cp;
 				}
 			}
+			else if (found_kind == K_NOTHING
+					 && handleVariableAssignment (name))
+				found_kind = K_VARIABLE;
 
 			if (found_kind != K_NOTHING)
 			{
