@@ -86,7 +86,7 @@ static roleDefinition ZshFunctionRoles [] = {
 	  .referenceOnly = false, FUNCTION_ROLES_SPEC },			\
 	{ true, 's', "script", "script files",						\
 	  .referenceOnly = true, ATTACH_ROLES (SCRIPT_ROLES) },		\
-	{ true, 'h', "heredoc", "label for here document",			\
+	{ true, 'h', "heredoc", "labels for here document",			\
 	  .referenceOnly = false, ATTACH_ROLES (HEREDOC_ROLES) }
 
 static kindDefinition ShKinds [] = {

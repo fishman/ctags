@@ -8,7 +8,7 @@
 !_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
 !_TAG_KIND_DESCRIPTION!Sh	a,alias	/aliases/
 !_TAG_KIND_DESCRIPTION!Sh	f,function	/functions/
-!_TAG_KIND_DESCRIPTION!Sh	h,heredoc	/label for here document/
+!_TAG_KIND_DESCRIPTION!Sh	h,heredoc	/labels for here document/
 !_TAG_KIND_DESCRIPTION!Sh	s,script	/script files/
 !_TAG_OUTPUT_EXCMD	mixed	/number, pattern, mixed, or combineV2/
 !_TAG_OUTPUT_FILESEP	slash	/slash or backslash/
