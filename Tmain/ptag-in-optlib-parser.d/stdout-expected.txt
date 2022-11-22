@@ -10,6 +10,7 @@
 !_TAG_KIND_DESCRIPTION!Sh	f,function	/functions/
 !_TAG_KIND_DESCRIPTION!Sh	h,heredoc	/labels for here document/
 !_TAG_KIND_DESCRIPTION!Sh	s,script	/script files/
+!_TAG_KIND_DESCRIPTION!Sh	v,variable	/variables assigment (experimental)/
 !_TAG_OUTPUT_EXCMD	mixed	/number, pattern, mixed, or combineV2/
 !_TAG_OUTPUT_FILESEP	slash	/slash or backslash/
 !_TAG_OUTPUT_MODE	u-ctags	/u-ctags or e-ctags/

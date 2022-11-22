@@ -459,6 +459,27 @@ static size_t handleZshKeyword (int keyword,
 	return vStringLength(token);
 }
 
+static bool doesLineCotinue(const unsigned char *start, const unsigned char *cp)
+{
+	cp--;
+	if (start >= cp)
+		return false;
+
+	if (*cp != '\\')
+		return false;
+
+	while (start < cp)
+	{
+		if (*cp == ';' || *cp == '|' || *cp == '&')
+			return false;
+		else if (isspace(*cp))
+			cp--;
+		else
+			return true;
+	}
+	return false;
+}
+
 static bool handleVariableAssignment (vString *input)
 {
 	const char *base = vStringValue (input);
@@ -503,6 +524,7 @@ static void findShTagsCommon (size_t (* keyword_handler) (int,
 	struct hereDocParsingState hstate;
 	hdocStateInit (&hstate);
 
+	bool cont_line = false;
 	while ((line = readLineFromInputFile ()) != NULL)
 	{
 		const unsigned char* cp = line;
@@ -528,10 +550,12 @@ static void findShTagsCommon (size_t (* keyword_handler) (int,
 				vStringDelete (hereDocDelimiter);
 				hereDocDelimiter = NULL;
 			}
+			cont_line = false;
 			continue;
 		}
 
 		hdocStateClear (&hstate);
+		bool beginning_of_line = !cont_line;
 		while (*cp != '\0')
 		{
 			subparser *sub = NULL;
@@ -669,6 +693,7 @@ static void findShTagsCommon (size_t (* keyword_handler) (int,
 						cp += d;
 					else if (*cp != '\0')
 						++cp;
+					beginning_of_line = false;
 					continue;
 				}
 
@@ -710,7 +735,8 @@ static void findShTagsCommon (size_t (* keyword_handler) (int,
 					++cp;
 				}
 			}
-			else if (found_kind == K_NOTHING
+			else if (beginning_of_line
+					 && found_kind == K_NOTHING
 					 && handleVariableAssignment (name))
 				found_kind = K_VARIABLE;
 
@@ -729,7 +755,11 @@ static void findShTagsCommon (size_t (* keyword_handler) (int,
 			else if (!hereDocDelimiter)
 				hdocStateUpdateArgs (&hstate, name);
 			vStringClear (name);
+			beginning_of_line = false;
 		}
+		if (*cp == '#')
+			cont_line = false;
+		cont_line = doesLineCotinue (line, cp);
 	}
 	hdocStateFini (&hstate);
 	vStringDelete (name);
