@@ -1371,6 +1371,8 @@ extern int defineField (fieldDefinition *def, langType language)
 	fobj->sibling  = FIELD_UNKNOWN;
 
 	updateSiblingField (def->ftype, def->name);
+	installOptscriptFieldAccessor (def->ftype);
+
 	return def->ftype;
 }
 

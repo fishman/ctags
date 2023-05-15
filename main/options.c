@@ -2322,6 +2322,7 @@ static void processListSubparsersOptions (const char *const option CTAGS_ATTR_UN
 static void processListOperators (const char *const option CTAGS_ATTR_UNUSED,
 								  const char *const parameter)
 {
+	initializeParser (LANG_AUTO);
 	listRegexOpscriptOperators (stdout);
 	exit (0);
 }

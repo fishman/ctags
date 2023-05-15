@@ -152,12 +152,22 @@ static EsObject* lrop_set_field_value (OptVM *vm, EsObject *name)
 	return es_false;
 }
 
-static void optscriptInstallFieldGetter (EsObject *dict, fieldType ftype,
-										 vString *op_name, vString *op_desc)
+static void optscriptInstallFieldGetterFast (EsObject *dict, fieldType ftype,
+											 vString *op_name, vString *op_desc)
 {
-	const char *fname = getFieldName (ftype);
 	vStringPut (op_name, ':');
+
+	langType lang = getFieldLanguage (ftype);
+	if (lang != LANG_IGNORE)
+	{
+		const char *lname = getLanguageName (lang);
+		vStringCatS (op_name, lname);
+		vStringPut (op_name, '.');
+	}
+
+	const char *fname = getFieldName (ftype);
 	vStringCatS (op_name, fname);
+
 	EsObject *op_sym = es_symbol_intern (vStringValue (op_name));
 	es_symbol_set_data (op_sym, HT_INT_TO_PTR (ftype));
 
@@ -198,9 +208,17 @@ static void optscriptInstallFieldGetter (EsObject *dict, fieldType ftype,
 	es_object_unref (op);
 }
 
-static void optscriptInstallFieldSetter (EsObject *dict, fieldType ftype,
-										 vString *op_name, vString *op_desc)
+static void optscriptInstallFieldSetterFast (EsObject *dict, fieldType ftype,
+											 vString *op_name, vString *op_desc)
 {
+	langType lang = getFieldLanguage (ftype);
+	if (lang != LANG_IGNORE)
+	{
+		const char *lname = getLanguageName (lang);
+		vStringCatS (op_name, lname);
+		vStringPut (op_name, '.');
+	}
+
 	const char *fname = getFieldName (ftype);
 	vStringCatS (op_name, fname);
 	vStringPut (op_name, ':');
@@ -237,22 +255,46 @@ static void optscriptInstallFieldSetter (EsObject *dict, fieldType ftype,
 	es_object_unref (op);
 }
 
+extern void optscriptInstallFieldAccessor (EsObject *dict, fieldType ftype)
+{
+	vString *op_name = vStringNew ();
+	vString *op_desc = vStringNew ();
+
+	if (hasFieldGetter (ftype))
+	{
+		optscriptInstallFieldGetterFast (dict, ftype, op_name, op_desc);
+		vStringClear (op_name);
+		vStringClear (op_desc);
+	}
+
+	if (hasFieldSetter (ftype))
+		optscriptInstallFieldSetterFast (dict, ftype, op_name, op_desc);
+
+	vStringDelete (op_name);
+	vStringDelete (op_desc);
+}
+
 static void optscriptInstallFieldAccessors (EsObject *dict)
 {
 	vString *op_name = vStringNew ();
 	vString *op_desc = vStringNew ();
 
+	/* In the current implementation, the upper boundary of the loop
+	   can be "<= FIELD_BUILTIN_LAST" because the parser specific fields
+	   are registered via defineField. However, when we change the order
+	   and the way to initialize parsers, we may have to use "< countFields()"
+	   instead. */
 	for (fieldType ftype = 0; ftype <= FIELD_BUILTIN_LAST; ftype++)
 	{
 		if (hasFieldGetter (ftype))
 		{
-			optscriptInstallFieldGetter (dict, ftype, op_name, op_desc);
+			optscriptInstallFieldGetterFast (dict, ftype, op_name, op_desc);
 			vStringClear (op_name);
 			vStringClear (op_desc);
 		}
 		if (hasFieldSetter (ftype))
 		{
-			optscriptInstallFieldSetter (dict, ftype, op_name, op_desc);
+			optscriptInstallFieldSetterFast (dict, ftype, op_name, op_desc);
 			vStringClear (op_name);
 			vStringClear (op_desc);
 		}
