@@ -1,6 +1,6 @@
 #LETTER NAME         ENABLED LANGUAGE  JSTYPE FIXED OP DESCRIPTION
--       boolfield    no      FIELDTEST --b    no    -- a field having boolean value
+-       boolfield    no      FIELDTEST --b    no    rw a field having boolean value
 -       deffield     no      FIELDTEST s--    no    -- a field that type is not specified
--       intfield     no      FIELDTEST -i-    no    -- a field having integer value
--       strboolfield no      FIELDTEST s-b    no    -- a field having string value or false
--       strfield     no      FIELDTEST s--    no    -- a field having string value
+-       intfield     no      FIELDTEST -i-    no    rw a field having integer value
+-       strboolfield no      FIELDTEST s-b    no    rw a field having string value or false
+-       strfield     no      FIELDTEST s--    no    rw a field having string value

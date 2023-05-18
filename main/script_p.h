@@ -29,6 +29,7 @@ extern void optscriptRegisterOperators(EsObject * dict,
 extern EsObject *OPTSCRIPT_ERR_NOTAGENTRY;
 extern EsObject *OPTSCRIPT_ERR_UNKNOWNLANGUAGE;
 extern EsObject *OPTSCRIPT_ERR_UNKNOWNEXTRA;
+extern EsObject *OPTSCRIPT_ERR_FIELDRESET;
 
 extern OptVM *optscriptInit (void);
 

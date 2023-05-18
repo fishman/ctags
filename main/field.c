@@ -1316,7 +1316,7 @@ static const char* defaultRenderer (const tagEntryInfo *const tag CTAGS_ATTR_UNU
 	return renderEscapedString (value, tag, buffer);
 }
 
-static bool isValueAvailableGeneric (const tagEntryInfo *const e, const fieldDefinition *fdef)
+extern bool isValueAvailableGeneric (const tagEntryInfo *const e, const fieldDefinition *fdef)
 {
 	return getParserFieldValueForType(e, fdef->ftype)? true: false;
 }
@@ -1923,5 +1923,84 @@ static EsObject* setFieldValueForInherits (tagEntryInfo *tag, const fieldDefinit
 	else
 		return OPT_ERR_RANGECHECK; /* true is not acceptable. */
 
+	return es_false;
+}
+
+extern EsObject* getFieldValueGeneric (const tagEntryInfo *tag, const fieldDefinition *fdef)
+{
+	const char *value = getParserFieldValueForType(tag, fdef->ftype);
+	unsigned int dt = fdef->dataType;
+
+	if (dt & FIELDTYPE_STRING)
+	{
+		if (value == NULL)
+			return es_nil;
+		return (dt & FIELDTYPE_BOOL && value[0] == '\0')
+			? es_false
+			: opt_string_new_from_cstr (value);
+	}
+	else if (dt & FIELDTYPE_INTEGER)
+	{
+		long tmp;
+
+		if (value == NULL)
+			return es_nil;
+		else if (value[0] == '\0')
+			tmp = 0;
+		else if (!strToLong (value, 10, &tmp))
+			tmp = 1;
+
+		return es_integer_new ((int)tmp);
+	}
+	else if (dt & FIELDTYPE_BOOL)
+		return value? es_true: es_nil;
+	else
+	{
+		AssertNotReached ();
+		return es_nil;
+	}
+}
+
+extern EsObject* setFieldValueGeneric (tagEntryInfo *tag, const fieldDefinition *fdef, const EsObject *obj)
+{
+	unsigned int dt = fdef->dataType;
+	const char * val;
+	char buf[1 /* [+-] */ + 20 + 1 /* for \0 */];
+
+	if (dt & FIELDTYPE_STRING)
+	{
+		if (es_object_get_type (obj) == OPT_TYPE_STRING)
+			val = opt_string_get_cstr (obj);
+		else if ((dt & FIELDTYPE_BOOL) && es_object_equal (es_false, obj))
+			val = "";
+		else
+			return OPT_ERR_TYPECHECK;
+	}
+	else if (dt & FIELDTYPE_INTEGER)
+	{
+		int tmp = es_integer_get (obj);
+		/* 2^64 => "18446744073709551616" */
+		snprintf(buf, sizeof(buf), "%d", tmp);
+		val = buf;
+	}
+	else if (dt & FIELDTYPE_BOOL)
+	{
+		if (es_boolean_get (obj))
+			val = "";
+		else
+		{
+			if (doesFieldHaveValue(fdef->ftype, tag))
+				return OPTSCRIPT_ERR_FIELDRESET;
+			val = NULL;
+		}
+	}
+	else
+	{
+		val = "";
+		AssertNotReached ();
+	}
+
+	if (val)
+		attachParserField (tag, fdef->ftype, val);
 	return es_false;
 }

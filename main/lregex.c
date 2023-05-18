@@ -4597,6 +4597,7 @@ extern void initRegexOptscript (void)
 	OPTSCRIPT_ERR_UNKNOWNLANGUAGE = es_error_intern ("unknownlanguage");
 	OPTSCRIPT_ERR_UNKNOWNKIND = es_error_intern ("unknownkind");
 	OPTSCRIPT_ERR_UNKNOWNROLE = es_error_intern ("unknownrole");
+	OPTSCRIPT_ERR_FIELDRESET = es_error_intern ("fieldreset");
 
 	optscriptInstallProcs (lregex_dict, lrop_get_match_string_named_group);
 

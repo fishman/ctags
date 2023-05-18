@@ -31,7 +31,7 @@ x       UCTAGSxpath          no      NONE             s--    no    -- xpath for 
 -       UCTAGShowImported    no      Go               s--    no    -- how the package is imported ("inline" for `.' or "init" for `_')
 -       UCTAGSpackage        yes     Go               s--    no    -- the real package specified by the package name
 -       UCTAGSpackageName    yes     Go               s--    no    -- the name for referring the package
--       UCTAGSimplements     yes     Inko             s--    no    -- Trait being implemented
+-       UCTAGSimplements     yes     Inko             s--    no    rw Trait being implemented
 -       UCTAGSassignment     yes     LdScript         s--    no    -- how a value is assigned to the symbol
 -       UCTAGSdefiner        yes     Lisp             s--    no    -- the name of the function or macro that defines the unknown/Y-kind object
 -       UCTAGSsectionMarker  no      Markdown         s--    no    -- character used for declaring section(#, ##, =, or -)
@@ -39,8 +39,8 @@ x       UCTAGSxpath          no      NONE             s--    no    -- xpath for 
 -       UCTAGSlangid         yes     NSIS             s--    no    -- language identifier specified in (License)LangString commands
 -       UCTAGScategory       yes     ObjectiveC       s--    no    -- category attached to the class
 -       UCTAGSprotocols      yes     ObjectiveC       s--    no    -- protocols that the class (or category) confirms to
--       UCTAGShome           yes     Passwd           s--    no    -- home directory
--       UCTAGSshell          yes     Passwd           s--    no    -- login shell
+-       UCTAGShome           yes     Passwd           s--    no    rw home directory
+-       UCTAGSshell          yes     Passwd           s--    no    rw login shell
 -       UCTAGSdecorators     no      Python           s--    no    -- decorators on functions and classes
 -       UCTAGSnameref        yes     Python           s--    no    -- the original name for the tag
 -       UCTAGSassignmentop   no      R                s--    no    -- operator for assignment

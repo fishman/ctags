@@ -25,6 +25,7 @@
 
 EsObject *OPTSCRIPT_ERR_NOTAGENTRY;
 EsObject *OPTSCRIPT_ERR_UNKNOWNLANGUAGE;
+EsObject *OPTSCRIPT_ERR_FIELDRESET;
 
 int OPT_TYPE_MATCHLOC;
 static int locEqual (const void *a, const void  *b);
@@ -134,13 +135,13 @@ static EsObject* lrop_set_field_value (OptVM *vm, EsObject *name)
 		if (!es_object_equal (e, es_false))
 			return e;
 	}
-	else
-	{
-		if (! (((fdata_type & FIELDTYPE_STRING) && (valtype == OPT_TYPE_STRING))
-			   || ((fdata_type & FIELDTYPE_BOOL) && (valtype == ES_TYPE_BOOLEAN))
-			   || ((fdata_type & FIELDTYPE_INTEGER) && (valtype == ES_TYPE_INTEGER))))
-			return OPT_ERR_TYPECHECK;
-	}
+	else if ((fdata_type & FIELDTYPE_STRING) && (fdata_type & FIELDTYPE_BOOL)
+			 && ((valtype == OPT_TYPE_STRING) || (valtype == ES_TYPE_BOOLEAN)))
+		;						/* Accept; do nothing */
+	else if (! (((fdata_type & FIELDTYPE_STRING) && (valtype == OPT_TYPE_STRING))
+				|| ((fdata_type & FIELDTYPE_BOOL) && (valtype == ES_TYPE_BOOLEAN))
+				|| ((fdata_type & FIELDTYPE_INTEGER) && (valtype == ES_TYPE_INTEGER))))
+		return OPT_ERR_TYPECHECK;
 
 	EsObject *r = setFieldValue (ftype, e, valobj);
 	if (es_error_p (r))

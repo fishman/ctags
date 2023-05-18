@@ -49,7 +49,7 @@ z	kind	no	NONE	s--	no	r-	[tags output] prepend "kind:" to k/ (or K/) field outpu
 -	howImported	no	Go	s--	no	--	how the package is imported ("inline" for `.' or "init" for `_')
 -	package	yes	Go	s--	no	--	the real package specified by the package name
 -	packageName	yes	Go	s--	no	--	the name for referring the package
--	implements	yes	Inko	s--	no	--	Trait being implemented
+-	implements	yes	Inko	s--	no	rw	Trait being implemented
 -	assignment	yes	LdScript	s--	no	--	how a value is assigned to the symbol
 -	definer	yes	Lisp	s--	no	--	the name of the function or macro that defines the unknown/Y-kind object
 -	sectionMarker	no	Markdown	s--	no	--	character used for declaring section(#, ##, =, or -)
@@ -57,8 +57,8 @@ z	kind	no	NONE	s--	no	r-	[tags output] prepend "kind:" to k/ (or K/) field outpu
 -	langid	yes	NSIS	s--	no	--	language identifier specified in (License)LangString commands
 -	category	yes	ObjectiveC	s--	no	--	category attached to the class
 -	protocols	yes	ObjectiveC	s--	no	--	protocols that the class (or category) confirms to
--	home	yes	Passwd	s--	no	--	home directory
--	shell	yes	Passwd	s--	no	--	login shell
+-	home	yes	Passwd	s--	no	rw	home directory
+-	shell	yes	Passwd	s--	no	rw	login shell
 -	decorators	no	Python	s--	no	--	decorators on functions and classes
 -	nameref	yes	Python	s--	no	--	the original name for the tag
 -	assignmentop	no	R	s--	no	--	operator for assignment
