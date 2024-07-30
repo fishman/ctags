@@ -1,0 +1,19 @@
+inc	input.nix	/^  inc = x: x + 1;$/;"	f
+inc	input.nix	/^  inc = x: x + 1;$/;"	a
+multilineFunc	input.nix	/^  multilineFunc =$/;"	a
+attrset	input.nix	/^  attrset = {$/;"	a
+foo	input.nix	/^    foo = "bar";$/;"	a
+multiline_attrset	input.nix	/^  multiline_attrset =$/;"	a
+bar	input.nix	/^    { bar = "foo"; };$/;"	a
+hello	input.nix	/^  hello = stdenv.mkDerivation {$/;"	a
+hello	input.nix	/^    name = "hello";$/;"	p
+name	input.nix	/^    name = "hello";$/;"	a
+src	input.nix	/^    src = fetchgit {$/;"	a
+url	input.nix	/^      url = "https:\/\/example.com";$/;"	a
+hash	input.nix	/^      hash = "sha256-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=";$/;"	a
+goodbye	input.nix	/^  goodbye = buildPythonPackge {$/;"	a
+goodbye	input.nix	/^    pname = "goodbye";$/;"	p
+pname	input.nix	/^    pname = "goodbye";$/;"	a
+src	input.nix	/^    src = fetchPyPi {$/;"	a
+url	input.nix	/^      url = "https:\/\/example.com";$/;"	a
+hash	input.nix	/^      hash = "sha256-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=";$/;"	a
