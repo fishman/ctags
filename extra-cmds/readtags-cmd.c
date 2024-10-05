@@ -485,7 +485,8 @@ static void listTags (struct inputSpec* inputSpec, bool pseudoTags, tagPrintOpti
 
 		if (tagsFirstPseudoTag (fileX->tagFile, &entry) == TagSuccess)
 			walkTags (fileX, &entry, true, tagsNextPseudoTag,
-					  printPseudoTag, printOpts,
+					  actionSpec->formatter? printTagWithFormatter: printPseudoTag,
+					  actionSpec->formatter? (void *)actionSpec: (void *)printOpts,
 					  actionSpec);
 		else if ((err = tagsGetErrno (fileX->tagFile)) != 0)
 		{

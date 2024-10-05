@@ -73,31 +73,31 @@ w_fn	/abc/w.c
 # drive-letter0.tags --canonicalize-input -l
 # drive-letter1.tags -C -l
 # good-ptags.tags -C -D
-!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
-!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
-!_TAG_OUTPUT_EXCMD	mixed	/number, pattern, mixed, or combineV2/
-!_TAG_OUTPUT_FILESEP	slash	/slash or backslash/
-!_TAG_OUTPUT_MODE	u-ctags	/u-ctags or e-ctags/
-!_TAG_PATTERN_LENGTH_LIMIT	96	/0 for no limit/
-!_TAG_PROC_CWD	/tmp	//
-!_TAG_PROGRAM_AUTHOR	Universal Ctags Team	//
-!_TAG_PROGRAM_NAME	Universal Ctags	/Derived from Exuberant Ctags/
-!_TAG_PROGRAM_URL	https://ctags.io/	/official site/
-!_TAG_PROGRAM_VERSION	5.9.0	/e08db39a3/
-!_TAG_PROC_DUMMY	/../../tmp	//
+!_TAG_FILE_FORMAT	2
+!_TAG_FILE_SORTED	1
+!_TAG_OUTPUT_EXCMD	mixed
+!_TAG_OUTPUT_FILESEP	slash
+!_TAG_OUTPUT_MODE	u-ctags
+!_TAG_PATTERN_LENGTH_LIMIT	96
+!_TAG_PROC_CWD	/tmp
+!_TAG_PROGRAM_AUTHOR	Universal Ctags Team
+!_TAG_PROGRAM_NAME	Universal Ctags
+!_TAG_PROGRAM_URL	https://ctags.io/
+!_TAG_PROGRAM_VERSION	5.9.0
+!_TAG_PROC_DUMMY	/../../tmp
 # good-ptags.tags -C --list-pseudo-tags
-!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
-!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
-!_TAG_OUTPUT_EXCMD	mixed	/number, pattern, mixed, or combineV2/
-!_TAG_OUTPUT_FILESEP	slash	/slash or backslash/
-!_TAG_OUTPUT_MODE	u-ctags	/u-ctags or e-ctags/
-!_TAG_PATTERN_LENGTH_LIMIT	96	/0 for no limit/
-!_TAG_PROC_CWD	/tmp	//
-!_TAG_PROGRAM_AUTHOR	Universal Ctags Team	//
-!_TAG_PROGRAM_NAME	Universal Ctags	/Derived from Exuberant Ctags/
-!_TAG_PROGRAM_URL	https://ctags.io/	/official site/
-!_TAG_PROGRAM_VERSION	5.9.0	/e08db39a3/
-!_TAG_PROC_DUMMY	/../../tmp	//
+!_TAG_FILE_FORMAT	2
+!_TAG_FILE_SORTED	1
+!_TAG_OUTPUT_EXCMD	mixed
+!_TAG_OUTPUT_FILESEP	slash
+!_TAG_OUTPUT_MODE	u-ctags
+!_TAG_PATTERN_LENGTH_LIMIT	96
+!_TAG_PROC_CWD	/tmp
+!_TAG_PROGRAM_AUTHOR	Universal Ctags Team
+!_TAG_PROGRAM_NAME	Universal Ctags
+!_TAG_PROGRAM_URL	https://ctags.io/
+!_TAG_PROGRAM_VERSION	5.9.0
+!_TAG_PROC_DUMMY	/../../tmp
 # good0.tags -A -l
 a_fn	/tmp/abc/xyz/a.c
 b_fn	/tmp/abc/b.c
@@ -173,28 +173,28 @@ w_fn	/abc/w.c
 # drive-letter0.tags --absolute-input -l
 # drive-letter1.tags -A -l
 # good-ptags.tags -A -D
-!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
-!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
-!_TAG_OUTPUT_EXCMD	mixed	/number, pattern, mixed, or combineV2/
-!_TAG_OUTPUT_FILESEP	slash	/slash or backslash/
-!_TAG_OUTPUT_MODE	u-ctags	/u-ctags or e-ctags/
-!_TAG_PATTERN_LENGTH_LIMIT	96	/0 for no limit/
-!_TAG_PROC_CWD	/tmp	//
-!_TAG_PROGRAM_AUTHOR	Universal Ctags Team	//
-!_TAG_PROGRAM_NAME	Universal Ctags	/Derived from Exuberant Ctags/
-!_TAG_PROGRAM_URL	https://ctags.io/	/official site/
-!_TAG_PROGRAM_VERSION	5.9.0	/e08db39a3/
-!_TAG_PROC_DUMMY	/../../tmp	//
+!_TAG_FILE_FORMAT	2
+!_TAG_FILE_SORTED	1
+!_TAG_OUTPUT_EXCMD	mixed
+!_TAG_OUTPUT_FILESEP	slash
+!_TAG_OUTPUT_MODE	u-ctags
+!_TAG_PATTERN_LENGTH_LIMIT	96
+!_TAG_PROC_CWD	/tmp
+!_TAG_PROGRAM_AUTHOR	Universal Ctags Team
+!_TAG_PROGRAM_NAME	Universal Ctags
+!_TAG_PROGRAM_URL	https://ctags.io/
+!_TAG_PROGRAM_VERSION	5.9.0
+!_TAG_PROC_DUMMY	/../../tmp
 # good-ptags.tags -A --list-pseudo-tags
-!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
-!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
-!_TAG_OUTPUT_EXCMD	mixed	/number, pattern, mixed, or combineV2/
-!_TAG_OUTPUT_FILESEP	slash	/slash or backslash/
-!_TAG_OUTPUT_MODE	u-ctags	/u-ctags or e-ctags/
-!_TAG_PATTERN_LENGTH_LIMIT	96	/0 for no limit/
-!_TAG_PROC_CWD	/tmp	//
-!_TAG_PROGRAM_AUTHOR	Universal Ctags Team	//
-!_TAG_PROGRAM_NAME	Universal Ctags	/Derived from Exuberant Ctags/
-!_TAG_PROGRAM_URL	https://ctags.io/	/official site/
-!_TAG_PROGRAM_VERSION	5.9.0	/e08db39a3/
-!_TAG_PROC_DUMMY	/../../tmp	//
+!_TAG_FILE_FORMAT	2
+!_TAG_FILE_SORTED	1
+!_TAG_OUTPUT_EXCMD	mixed
+!_TAG_OUTPUT_FILESEP	slash
+!_TAG_OUTPUT_MODE	u-ctags
+!_TAG_PATTERN_LENGTH_LIMIT	96
+!_TAG_PROC_CWD	/tmp
+!_TAG_PROGRAM_AUTHOR	Universal Ctags Team
+!_TAG_PROGRAM_NAME	Universal Ctags
+!_TAG_PROGRAM_URL	https://ctags.io/
+!_TAG_PROGRAM_VERSION	5.9.0
+!_TAG_PROC_DUMMY	/../../tmp
