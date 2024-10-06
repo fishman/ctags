@@ -11,8 +11,20 @@ V=
 
 skip_if_no_readtags "$READTAGS"
 
-echo '# SORT=NO'
+echo '# SORT=NO (-D)'
 ${V} ${READTAGS} -t ./ptag-sort-no.tags -D
 
-echo '# SORT=YES'
+echo '# SORT=NO (-P)'
+${V} ${READTAGS} -t ./ptag-sort-no.tags -P no-such-tags
+
+echo '# SORT=YES (-D)'
 ${V} ${READTAGS} -t ./ptag-sort-yes.tags -D
+
+echo '# SORT=YES (-P)'
+${V} ${READTAGS} -t ./ptag-sort-yes.tags -P no-such-tags
+
+echo '# -D + FILTER (-D)'
+${V} ${READTAGS} -t ./ptag-sort-yes.tags -Q '(#/MA/i $name)' -D
+
+echo '# -P -l + FILTER (-D)'
+${V} ${READTAGS} -t ./ptag-sort-yes.tags -Q '(#/MA/i $name)' -P -l

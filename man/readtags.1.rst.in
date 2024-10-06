@@ -36,6 +36,7 @@ ACTIONS
 
 ``-D``, ``--list-pseudo-tags``
 	List pseudo tags.
+	You can use this option with ``-Q`` option to extract specified pseudo tags.
 
 OPTIONS
 -------
@@ -100,6 +101,8 @@ field. The Output can be tweaked using these options:
 
 ``-P``, ``--with-pseudo-tags``
 	List pseudo tags as if ``-D`` option is specified but continues processing without exiting.
+	Even if you specify the ``-Q`` and ``-P`` options together, ``-Q``  affects only
+	regular tags; it doesn't affect pseudo tags.
 
 About the ``-E`` option: certain characters are escaped in a tags file, to make
 it machine-readable. e.g., ensuring no tabs character appear in fields other

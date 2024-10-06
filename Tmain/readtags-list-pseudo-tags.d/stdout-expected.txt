@@ -1,4 +1,4 @@
-# SORT=NO
+# SORT=NO (-D)
 !_JSON_OUTPUT_VERSION	0.0	/in development/
 !_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
 !_TAG_FILE_SORTED	0	/0=unsorted, 1=sorted, 2=foldcase/
@@ -41,7 +41,50 @@
 !_TAG_KIND_DESCRIPTION!EmacsLisp	G,group	/customization groups/
 !_TAG_KIND_DESCRIPTION!EmacsLisp	H,face	/customizable faces/
 !_TAG_KIND_DESCRIPTION!EmacsLisp	T,theme	/custom themes/
-# SORT=YES
+# SORT=NO (-P)
+!_JSON_OUTPUT_VERSION	0.0	/in development/
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	0	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Universal Ctags Team	//
+!_TAG_PROGRAM_NAME	Universal Ctags	/Derived from Exuberant Ctags/
+!_TAG_PROGRAM_URL	https://ctags.io/	/official site/
+!_TAG_PROGRAM_VERSION	0.0.0	/9b73623f/
+!_TAG_OUTPUT_MODE	u-ctags	/u-ctags or e-ctags/
+!_TAG_OUTPUT_FILESEP	slash	/slash or backslash/
+!_TAG_PATTERN_LENGTH_LIMIT	96	/0 for no limit/
+!_TAG_KIND_DESCRIPTION!C	d,macro	/macro definitions/
+!_TAG_KIND_DESCRIPTION!C	e,enumerator	/enumerators (values inside an enumeration)/
+!_TAG_KIND_DESCRIPTION!C	f,function	/function definitions/
+!_TAG_KIND_DESCRIPTION!C	g,enum	/enumeration names/
+!_TAG_KIND_DESCRIPTION!C	h,header	/included header files/
+!_TAG_KIND_DESCRIPTION!C	l,local	/local variables/
+!_TAG_KIND_DESCRIPTION!C	m,member	/struct, and union members/
+!_TAG_KIND_DESCRIPTION!C	p,prototype	/function prototypes/
+!_TAG_KIND_DESCRIPTION!C	s,struct	/structure names/
+!_TAG_KIND_DESCRIPTION!C	t,typedef	/typedefs/
+!_TAG_KIND_DESCRIPTION!C	u,union	/union names/
+!_TAG_KIND_DESCRIPTION!C	v,variable	/variable definitions/
+!_TAG_KIND_DESCRIPTION!C	x,externvar	/external and forward variable declarations/
+!_TAG_KIND_DESCRIPTION!C	z,parameter	/function parameters inside function definitions/
+!_TAG_KIND_DESCRIPTION!C	L,label	/goto labels/
+!_TAG_KIND_DESCRIPTION!C	D,macroparam	/parameters inside macro definitions/
+!_TAG_KIND_DESCRIPTION!EmacsLisp	u,unknown	/unknown type of definitions/
+!_TAG_KIND_DESCRIPTION!EmacsLisp	f,function	/functions/
+!_TAG_KIND_DESCRIPTION!EmacsLisp	v,variable	/variables/
+!_TAG_KIND_DESCRIPTION!EmacsLisp	c,const	/constants/
+!_TAG_KIND_DESCRIPTION!EmacsLisp	m,macro	/macros/
+!_TAG_KIND_DESCRIPTION!EmacsLisp	a,alias	/aliases for functions/
+!_TAG_KIND_DESCRIPTION!EmacsLisp	V,varalias	/aliases for variables/
+!_TAG_KIND_DESCRIPTION!EmacsLisp	s,subst	/inline function/
+!_TAG_KIND_DESCRIPTION!EmacsLisp	i,inline	/inline function/
+!_TAG_KIND_DESCRIPTION!EmacsLisp	e,error	/errors/
+!_TAG_KIND_DESCRIPTION!EmacsLisp	M,minorMode	/minor modes/
+!_TAG_KIND_DESCRIPTION!EmacsLisp	D,derivedMode	/derived major mode/
+!_TAG_KIND_DESCRIPTION!EmacsLisp	C,custom	/customizable variables/
+!_TAG_KIND_DESCRIPTION!EmacsLisp	G,group	/customization groups/
+!_TAG_KIND_DESCRIPTION!EmacsLisp	H,face	/customizable faces/
+!_TAG_KIND_DESCRIPTION!EmacsLisp	T,theme	/custom themes/
+# SORT=YES (-D)
 !_JSON_OUTPUT_VERSION	0.0	/in development/
 !_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
 !_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
@@ -84,3 +127,108 @@
 !_TAG_PROGRAM_NAME	Universal Ctags	/Derived from Exuberant Ctags/
 !_TAG_PROGRAM_URL	https://ctags.io/	/official site/
 !_TAG_PROGRAM_VERSION	0.0.0	/9b73623f/
+# SORT=YES (-P)
+!_JSON_OUTPUT_VERSION	0.0	/in development/
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_KIND_DESCRIPTION!C	D,macroparam	/parameters inside macro definitions/
+!_TAG_KIND_DESCRIPTION!C	L,label	/goto labels/
+!_TAG_KIND_DESCRIPTION!C	d,macro	/macro definitions/
+!_TAG_KIND_DESCRIPTION!C	e,enumerator	/enumerators (values inside an enumeration)/
+!_TAG_KIND_DESCRIPTION!C	f,function	/function definitions/
+!_TAG_KIND_DESCRIPTION!C	g,enum	/enumeration names/
+!_TAG_KIND_DESCRIPTION!C	h,header	/included header files/
+!_TAG_KIND_DESCRIPTION!C	l,local	/local variables/
+!_TAG_KIND_DESCRIPTION!C	m,member	/struct, and union members/
+!_TAG_KIND_DESCRIPTION!C	p,prototype	/function prototypes/
+!_TAG_KIND_DESCRIPTION!C	s,struct	/structure names/
+!_TAG_KIND_DESCRIPTION!C	t,typedef	/typedefs/
+!_TAG_KIND_DESCRIPTION!C	u,union	/union names/
+!_TAG_KIND_DESCRIPTION!C	v,variable	/variable definitions/
+!_TAG_KIND_DESCRIPTION!C	x,externvar	/external and forward variable declarations/
+!_TAG_KIND_DESCRIPTION!C	z,parameter	/function parameters inside function definitions/
+!_TAG_KIND_DESCRIPTION!EmacsLisp	C,custom	/customizable variables/
+!_TAG_KIND_DESCRIPTION!EmacsLisp	D,derivedMode	/derived major mode/
+!_TAG_KIND_DESCRIPTION!EmacsLisp	G,group	/customization groups/
+!_TAG_KIND_DESCRIPTION!EmacsLisp	H,face	/customizable faces/
+!_TAG_KIND_DESCRIPTION!EmacsLisp	M,minorMode	/minor modes/
+!_TAG_KIND_DESCRIPTION!EmacsLisp	T,theme	/custom themes/
+!_TAG_KIND_DESCRIPTION!EmacsLisp	V,varalias	/aliases for variables/
+!_TAG_KIND_DESCRIPTION!EmacsLisp	a,alias	/aliases for functions/
+!_TAG_KIND_DESCRIPTION!EmacsLisp	c,const	/constants/
+!_TAG_KIND_DESCRIPTION!EmacsLisp	e,error	/errors/
+!_TAG_KIND_DESCRIPTION!EmacsLisp	f,function	/functions/
+!_TAG_KIND_DESCRIPTION!EmacsLisp	i,inline	/inline function/
+!_TAG_KIND_DESCRIPTION!EmacsLisp	m,macro	/macros/
+!_TAG_KIND_DESCRIPTION!EmacsLisp	s,subst	/inline function/
+!_TAG_KIND_DESCRIPTION!EmacsLisp	u,unknown	/unknown type of definitions/
+!_TAG_KIND_DESCRIPTION!EmacsLisp	v,variable	/variables/
+!_TAG_OUTPUT_FILESEP	slash	/slash or backslash/
+!_TAG_OUTPUT_MODE	u-ctags	/u-ctags or e-ctags/
+!_TAG_PATTERN_LENGTH_LIMIT	96	/0 for no limit/
+!_TAG_PROGRAM_AUTHOR	Universal Ctags Team	//
+!_TAG_PROGRAM_NAME	Universal Ctags	/Derived from Exuberant Ctags/
+!_TAG_PROGRAM_URL	https://ctags.io/	/official site/
+!_TAG_PROGRAM_VERSION	0.0.0	/9b73623f/
+# -D + FILTER (-D)
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_KIND_DESCRIPTION!EmacsLisp	C,custom	/customizable variables/
+!_TAG_KIND_DESCRIPTION!EmacsLisp	D,derivedMode	/derived major mode/
+!_TAG_KIND_DESCRIPTION!EmacsLisp	G,group	/customization groups/
+!_TAG_KIND_DESCRIPTION!EmacsLisp	H,face	/customizable faces/
+!_TAG_KIND_DESCRIPTION!EmacsLisp	M,minorMode	/minor modes/
+!_TAG_KIND_DESCRIPTION!EmacsLisp	T,theme	/custom themes/
+!_TAG_KIND_DESCRIPTION!EmacsLisp	V,varalias	/aliases for variables/
+!_TAG_KIND_DESCRIPTION!EmacsLisp	a,alias	/aliases for functions/
+!_TAG_KIND_DESCRIPTION!EmacsLisp	c,const	/constants/
+!_TAG_KIND_DESCRIPTION!EmacsLisp	e,error	/errors/
+!_TAG_KIND_DESCRIPTION!EmacsLisp	f,function	/functions/
+!_TAG_KIND_DESCRIPTION!EmacsLisp	i,inline	/inline function/
+!_TAG_KIND_DESCRIPTION!EmacsLisp	m,macro	/macros/
+!_TAG_KIND_DESCRIPTION!EmacsLisp	s,subst	/inline function/
+!_TAG_KIND_DESCRIPTION!EmacsLisp	u,unknown	/unknown type of definitions/
+!_TAG_KIND_DESCRIPTION!EmacsLisp	v,variable	/variables/
+# -P -l + FILTER (-D)
+!_JSON_OUTPUT_VERSION	0.0	/in development/
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_KIND_DESCRIPTION!C	D,macroparam	/parameters inside macro definitions/
+!_TAG_KIND_DESCRIPTION!C	L,label	/goto labels/
+!_TAG_KIND_DESCRIPTION!C	d,macro	/macro definitions/
+!_TAG_KIND_DESCRIPTION!C	e,enumerator	/enumerators (values inside an enumeration)/
+!_TAG_KIND_DESCRIPTION!C	f,function	/function definitions/
+!_TAG_KIND_DESCRIPTION!C	g,enum	/enumeration names/
+!_TAG_KIND_DESCRIPTION!C	h,header	/included header files/
+!_TAG_KIND_DESCRIPTION!C	l,local	/local variables/
+!_TAG_KIND_DESCRIPTION!C	m,member	/struct, and union members/
+!_TAG_KIND_DESCRIPTION!C	p,prototype	/function prototypes/
+!_TAG_KIND_DESCRIPTION!C	s,struct	/structure names/
+!_TAG_KIND_DESCRIPTION!C	t,typedef	/typedefs/
+!_TAG_KIND_DESCRIPTION!C	u,union	/union names/
+!_TAG_KIND_DESCRIPTION!C	v,variable	/variable definitions/
+!_TAG_KIND_DESCRIPTION!C	x,externvar	/external and forward variable declarations/
+!_TAG_KIND_DESCRIPTION!C	z,parameter	/function parameters inside function definitions/
+!_TAG_KIND_DESCRIPTION!EmacsLisp	C,custom	/customizable variables/
+!_TAG_KIND_DESCRIPTION!EmacsLisp	D,derivedMode	/derived major mode/
+!_TAG_KIND_DESCRIPTION!EmacsLisp	G,group	/customization groups/
+!_TAG_KIND_DESCRIPTION!EmacsLisp	H,face	/customizable faces/
+!_TAG_KIND_DESCRIPTION!EmacsLisp	M,minorMode	/minor modes/
+!_TAG_KIND_DESCRIPTION!EmacsLisp	T,theme	/custom themes/
+!_TAG_KIND_DESCRIPTION!EmacsLisp	V,varalias	/aliases for variables/
+!_TAG_KIND_DESCRIPTION!EmacsLisp	a,alias	/aliases for functions/
+!_TAG_KIND_DESCRIPTION!EmacsLisp	c,const	/constants/
+!_TAG_KIND_DESCRIPTION!EmacsLisp	e,error	/errors/
+!_TAG_KIND_DESCRIPTION!EmacsLisp	f,function	/functions/
+!_TAG_KIND_DESCRIPTION!EmacsLisp	i,inline	/inline function/
+!_TAG_KIND_DESCRIPTION!EmacsLisp	m,macro	/macros/
+!_TAG_KIND_DESCRIPTION!EmacsLisp	s,subst	/inline function/
+!_TAG_KIND_DESCRIPTION!EmacsLisp	u,unknown	/unknown type of definitions/
+!_TAG_KIND_DESCRIPTION!EmacsLisp	v,variable	/variables/
+!_TAG_OUTPUT_FILESEP	slash	/slash or backslash/
+!_TAG_OUTPUT_MODE	u-ctags	/u-ctags or e-ctags/
+!_TAG_PATTERN_LENGTH_LIMIT	96	/0 for no limit/
+!_TAG_PROGRAM_AUTHOR	Universal Ctags Team	//
+!_TAG_PROGRAM_NAME	Universal Ctags	/Derived from Exuberant Ctags/
+!_TAG_PROGRAM_URL	https://ctags.io/	/official site/
+!_TAG_PROGRAM_VERSION	0.0.0	/9b73623f/
+main	input.c	/^int main (void) { return 0; }$/

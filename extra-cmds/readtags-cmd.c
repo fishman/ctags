@@ -59,6 +59,7 @@ enum actionType {
 		ACTION_FIND = 1 << 0,
 		ACTION_LIST = 1 << 1,
 		ACTION_LIST_PTAGS = 1 << 2,
+		ACTION_LIST_PTAGS_WITH_FILTER = 1 << 3,
 };
 
 struct actionSpec {
@@ -478,6 +479,10 @@ static void listTags (struct inputSpec* inputSpec, bool pseudoTags, tagPrintOpti
 
 	if (pseudoTags)
 	{
+		QCode *qualifier = actionSpec->qualifier;
+		if (!(actionSpec->action & ACTION_LIST_PTAGS_WITH_FILTER))
+			actionSpec->qualifier = NULL;
+
 		if (tagsFirstPseudoTag (fileX->tagFile, &entry) == TagSuccess)
 			walkTags (fileX, &entry, true, tagsNextPseudoTag,
 					  printPseudoTag, printOpts,
@@ -489,6 +494,9 @@ static void listTags (struct inputSpec* inputSpec, bool pseudoTags, tagPrintOpti
 					 tagsStrerror (err));
 			exit (1);
 		}
+
+		if (!(actionSpec->action & ACTION_LIST_PTAGS_WITH_FILTER))
+			actionSpec->qualifier = qualifier;
 	}
 	else
 	{
@@ -746,7 +754,11 @@ static void parseOptions (int argc, char **argv,
 				debugMode++;
 			else if (strcmp (optname, "list-pseudo-tags") == 0
 					 || strcmp (optname, "with-pseudo-tags") == 0)
+			{
 				actionSpec->action |= ACTION_LIST_PTAGS;
+				if (optname[0] == 'l')
+					actionSpec->action |= ACTION_LIST_PTAGS_WITH_FILTER;
+			}
 			else if (strcmp (optname, "help") == 0)
 				printUsage (stdout, 0);
 			else if (strcmp (optname, "help-expression") == 0)
@@ -890,6 +902,8 @@ static void parseOptions (int argc, char **argv,
 				{
 				case 'd': debugMode++; break;
 				case 'D':
+					actionSpec->action |= ACTION_LIST_PTAGS_WITH_FILTER;
+					/* fall through */
 				case 'P':
 					actionSpec->action |= ACTION_LIST_PTAGS;
 					break;
