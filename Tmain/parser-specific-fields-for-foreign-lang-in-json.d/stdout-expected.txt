@@ -1,0 +1,12 @@
+# output: json
+{"_type": "tag", "name": "foo", "path": "input.unknownx", "pattern": "/^public func foo(n, m);$/", "language": "unknownx", "kind": "func", "protection": "public ", "signature": "(n, m)"}
+{"_type": "tag", "name": "bar", "path": "input.unknownx", "pattern": "/^protected func bar(n);$/", "language": "unknownx", "kind": "func", "protection": "protected ", "signature": "(n)"}
+{"_type": "tag", "name": "baz", "path": "input.unknownx", "pattern": "/^private func baz(n,...);$/", "language": "unknownx", "kind": "func", "protection": "private ", "signature": "(n,...)"}
+{"_type": "tag", "name": "strset", "path": "input.unknownx", "pattern": "/^STR:strset@iamowner$/", "language": "knownz", "kind": "mark", "owner": "iamowner"}
+{"_type": "tag", "name": "setsetempty", "path": "input.unknownx", "pattern": "/^STR:setsetempty@$/", "language": "knownz", "kind": "mark", "owner": ""}
+{"_type": "tag", "name": "notset", "path": "input.unknownx", "pattern": "/^STR:notset$/", "language": "knownz", "kind": "mark"}
+{"_type": "tag", "name": "tagme2", "path": "input.unknownx", "pattern": "/^Y:iamowner2=tagme2$/", "language": "knownz", "kind": "mark", "owner": "iamowner2"}
+{"_type": "tag", "name": "tagme-z", "path": "input.unknownx", "pattern": "/^Z:tagme-z@iamowner-z$/", "language": "knownz", "kind": "mark", "owner": "iamowner-z", "len": 10, "lenplus": 11}
+{"_type": "tag", "name": "a", "path": "input.unknownx", "pattern": "/^eset:a$/", "language": "knownz", "kind": "mark", "exported": true}
+{"_type": "tag", "name": "b", "path": "input.unknownx", "pattern": "/^enoset:b$/", "language": "knownz", "kind": "mark"}
+{"_type": "tag", "name": "9_exported", "path": "input.unknownx", "pattern": "/^enoset:b$/", "language": "knownz", "kind": "mark"}

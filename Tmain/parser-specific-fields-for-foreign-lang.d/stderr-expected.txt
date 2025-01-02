@@ -1,1 +1,20 @@
 ctags: Notice: No options will be read from files or environment
+/not-set
+false
+(something string)
+# Setting a string to a bool field
+true
+true
+# Setting a string to a int field
+true
+1
+ctags: Notice: No options will be read from files or environment
+/not-set
+false
+(something string)
+# Setting a string to a bool field
+true
+true
+# Setting a string to a int field
+true
+1
