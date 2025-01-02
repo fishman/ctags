@@ -1,10 +1,10 @@
 X/y	input.scss	/^@use "X\/y";$/;"	M	roles:used
-y	input.scss	/^@use "X\/y";$/;"	n	roles:def
+y	input.scss	/^@use "X\/y";$/;"	n	roles:def	module:X/y
 Z	input.scss	/^@use "Z";$/;"	M	roles:used
-Z	input.scss	/^@use "Z";$/;"	n	roles:def
+Z	input.scss	/^@use "Z";$/;"	n	roles:def	module:Z
 A	input.scss	/^@use "A" as NS;$/;"	M	roles:used
-NS	input.scss	/^@use "A" as NS;$/;"	n	roles:def
+NS	input.scss	/^@use "A" as NS;$/;"	n	roles:def	module:A
 B/	input.scss	/^@use "B\/";$/;"	M	roles:used
 C/d/e	input.scss	/^@use 'C\/d\/e';$/;"	M	roles:used
-e	input.scss	/^@use 'C\/d\/e';$/;"	n	roles:def
+e	input.scss	/^@use 'C\/d\/e';$/;"	n	roles:def	module:C/d/e
 P/q	input.scss	/^@use 'P\/q' as *;$/;"	M	roles:used

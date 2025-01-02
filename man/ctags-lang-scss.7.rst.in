@@ -28,6 +28,7 @@ Change since "0.0"
 
 * New kind ``module`` and new role ``used`` of the ``module`` kind
 * New kind ``namespace``
+* New field ``module``
 
 SEE ALSO
 --------

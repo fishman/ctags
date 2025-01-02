@@ -66,6 +66,7 @@ z	kind	no	NONE	s--	no	r-	[tags output] prepend "kind:" to k/ (or K/) field outpu
 -	overline	no	ReStructuredText	--b	no	--	whether using overline & underline for declaring section
 -	sectionMarker	no	ReStructuredText	s--	no	--	character used for declaring section
 -	mixin	yes	Ruby	s--	no	--	how the class or module is mixed in (mixin:HOW:MODULE)
+-	module	yes	SCSS	s--	no	rw	the name of module behind the namespace
 -	definer	yes	Scheme	s--	no	--	the name of the function or macro that defines the unknown/Y-kind object
 -	parameter	no	SystemVerilog	--b	no	--	parameter whose value can be overridden.
 -	target	yes	Thrift	s--	no	--	the target language specified at "namespace"
