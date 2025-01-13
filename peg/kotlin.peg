@@ -258,7 +258,7 @@ annotation <- (singleAnnotation / multiAnnotation) __*
 singleAnnotation <- annotationUseSiteTarget __* unescapedAnnotation / (AT_NO_WS / AT_PRE_WS) unescapedAnnotation
 multiAnnotation <- annotationUseSiteTarget __* LSQUARE unescapedAnnotation+ RSQUARE / (AT_NO_WS / AT_PRE_WS) LSQUARE unescapedAnnotation+ RSQUARE
 annotationUseSiteTarget <- (AT_NO_WS / AT_PRE_WS) (FIELD / PROPERTY / GET / SET / RECEIVER / PARAM / SETPARAM / DELEGATE) __* COLON
-unescapedAnnotation <- constructorInvocation / userType
+unescapedAnnotation <- userType valueArguments?
 
 # // SECTION: identifiers
 simpleIdentifier <- !(hardKeyword !(Letter / '_' / UnicodeDigit)) Identifier / ABSTRACT / ANNOTATION / BY / CATCH / COMPANION / CONSTRUCTOR / CROSSINLINE / DATA / DYNAMIC / ENUM / EXTERNAL / FINAL / FINALLY / GET / IMPORT / INFIX / INIT / INLINE / INNER / INTERNAL / LATEINIT / NOINLINE / OPEN / OPERATOR / OUT / OVERRIDE / PRIVATE / PROTECTED / PUBLIC / REIFIED / SEALED / TAILREC / SET / VARARG / WHERE / FIELD / PROPERTY / RECEIVER / PARAM / SETPARAM / DELEGATE / FILE / EXPECT / ACTUAL / CONST / SUSPEND

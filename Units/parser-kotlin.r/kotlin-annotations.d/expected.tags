@@ -1,0 +1,2 @@
+f1	input.kt	/^fun f1(@a2 x: @a3 () -> Unit) {}$/;"	m
+f2	input.kt	/^fun f2(@a5() x: @a6() () -> Unit) {}$/;"	m
