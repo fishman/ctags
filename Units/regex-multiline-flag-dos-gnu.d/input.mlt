@@ -1,0 +1,46 @@
+// Taken from #1473 opened by WillDHB
+@subscribe
+public void catchA(SomeEvent e)
+{
+int x = 4 * 4;
+return;
+}
+
+@subscribe
+public void catchB(SomeEvent e)
+{
+int x = 4 * 4;
+return;
+}
+
+@subscribe
+public void catchC(SomeEvent e)
+{
+int x = 7 * 7 * 7;
+return;
+}
+
+@subscribe
+public void catchD(SomeEvent e)
+{
+int x = 9;
+
+return;
+
+}
+
+@subscribe
+public void catchE(SomeEvent e)
+{
+
+int x = 30;
+
+return;
+
+}
+
+@subscribe
+public void catchF(SomeEvent e)
+{
+return;
+}

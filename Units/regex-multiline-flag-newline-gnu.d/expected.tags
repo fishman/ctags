@@ -1,0 +1,3 @@
+captureme0	input.foobar	/^def: captureme0$/;"	d	line:4	language:FOOBAR
+captureme1	input.foobar	/^captureme1$/;"	d	line:8	language:FOOBAR
+captureme2	input.foobar	/^	captureme2$/;"	d	line:15	language:FOOBAR

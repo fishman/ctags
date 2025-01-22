@@ -1,0 +1,5 @@
+--langdef=FOOBAR
+--langmap=FOOBAR:.foobar
+--kinddef-FOOBAR=d,def,definitions
+--mline-regex-foobar=/^def(\n[\n\t]|: )(\w+)/\2/d/{mgroup=2}
+--fields=+ln

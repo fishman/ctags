@@ -1,0 +1,7 @@
+a	input.foobar	/^	a$/;"	D	line:2	language:FOOBAR
+a	input.foobar	/^	a$/;"	d	line:2	language:FOOBAR
+b	input.foobar	/^	b$/;"	D	line:4	language:FOOBAR
+b	input.foobar	/^	b$/;"	d	line:4	language:FOOBAR
+c	input.foobar	/^	c$/;"	D	line:6	language:FOOBAR
+c	input.foobar	/^	c$/;"	d	line:6	language:FOOBAR
+d	input.foobar	/^  d$/;"	D	line:8	language:FOOBAR

@@ -1,0 +1,6 @@
+A-SomeEvent	input.mlt	/^public void catchA(SomeEvent e)$/;"	s	line:3	language:mltest
+B-SomeEvent	input.mlt	/^public void catchB(SomeEvent e)$/;"	s	line:10	language:mltest
+C-SomeEvent	input.mlt	/^public void catchC(SomeEvent e)$/;"	s	line:17	language:mltest
+D-SomeEvent	input.mlt	/^public void catchD(SomeEvent e)$/;"	s	line:24	language:mltest
+E-SomeEvent	input.mlt	/^public void catchE(SomeEvent e)$/;"	s	line:33	language:mltest
+F-SomeEvent	input.mlt	/^public void catchF(SomeEvent e)$/;"	s	line:43	language:mltest

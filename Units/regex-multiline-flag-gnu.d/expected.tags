@@ -1,0 +1,2 @@
+Event-SomeEvent	input.java	/^public void catchEvent(SomeEvent e)$/;"	s	line:2	language:javaspring
+recover-Exception	input.java	/^    recover(Exception e)$/;"	s	line:10	language:javaspring

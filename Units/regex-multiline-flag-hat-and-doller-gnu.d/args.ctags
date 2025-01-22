@@ -1,0 +1,7 @@
+--langdef=FOOBAR
+--langmap=FOOBAR:.foobar
+--kinddef-FOOBAR=d,def,definitions
+--kinddef-FOOBAR=D,Def,Definitions
+--mline-regex-foobar=/^def\s+([a-z]+)$/\1/d/{mgroup=1}
+--mline-regex-foobar=/[\n]?def\s+([a-z]+)\n/\1/D/{mgroup=1}
+--fields=+ln

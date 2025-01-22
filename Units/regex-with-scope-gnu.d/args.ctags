@@ -1,0 +1,14 @@
+# To check the output easier
+--sort=no
+
+--langdef=foo
+    --map-foo=+.foo
+    --regex-foo=/^#.*//{exclusive}
+    --regex-foo=/^\s*define\s+(\w+)\s*\{/\1/d,definition/{scope=push}
+    --regex-foo=/^\s*\{/_/d,definition/{scope=push}{placeholder}
+    --regex-foo=/^\s*package\s+(\w+)/\1/p,package/{scope=push}
+    --regex-foo=/^\s*end\s*$//{scope=pop}{exclusive}
+    --regex-foo=/^\s*\}\s*$//{scope=pop}{exclusive}
+    --regex-foo=/^\s*ns\s+(\w+)/\1/n,namespace/{scope=set}
+    --regex-foo=/^\s*var\s+(\w+)/\1/v,var/{scope=ref}
+    --regex-foo=/^\s*global//{scope=clear}{exclusive}

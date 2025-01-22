@@ -1,0 +1,5 @@
+--langdef=javaspring
+--langmap=javaspring:.java
+--mline-regex-javaspring=/@Subscribe\s*[a-z ]+\s*([a-zA-Z]*)\(([a-zA-Z]*)/\1-\2/s,subscription/{mgroup=1}
+--excmd=mixed
+--fields=+ln

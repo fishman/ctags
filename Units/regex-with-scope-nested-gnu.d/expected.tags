@@ -1,0 +1,23 @@
+X	input.foo	/^# open:X$/;"	s	end:47
+NS1	input.foo	/^ns NS1$/;"	n	end:16
+x	input.foo	/^define x {$/;"	d	namespace:NS1	end:14
+y	input.foo	/^	define y {$/;"	d	definition:NS1.x	end:7
+v_y_0	input.foo	/^	       var v_y_0$/;"	v	definition:NS1.x.y
+v_y_1	input.foo	/^	       var v_y_1$/;"	v	definition:NS1.x.y
+z	input.foo	/^	define z {$/;"	d	definition:NS1.x	end:13
+v_z_0	input.foo	/^	       var v_z_0$/;"	v	definition:NS1.x.z
+v_z_1	input.foo	/^	       var v_z_1$/;"	v	definition:NS1.x.z
+a	input.foo	/^	       define a {$/;"	d	definition:NS1.x.z	end:12
+NS2	input.foo	/^ns NS2$/;"	n	end:24
+p	input.foo	/^define p {$/;"	d	namespace:NS2	end:22
+WRAPPER	input.foo	/^# def:WRAPPER$/;"	d	scope:X
+q	input.foo	/^   define q {$/;"	d	definition:NS2.p	end:21
+v_g1	input.foo	/^var v_g1$/;"	v
+d_g	input.foo	/^define d_g {$/;"	d	end:28
+v_l	input.foo	/^       var v_l$/;"	v	definition:d_g
+NS3	input.foo	/^ns NS3$/;"	n	end:47
+PACKAGE	input.foo	/^package PACKAGE$/;"	p	namespace:NS3	end:44
+p	input.foo	/^define p {$/;"	d	package:NS3.PACKAGE	end:41
+q	input.foo	/^   define q {$/;"	d	definition:NS3.PACKAGE.p	end:38
+L	input.foo	/^		var L$/;"	v	definition:NS3.PACKAGE.p.q
+v_g2	input.foo	/^var v_g2$/;"	v	namespace:NS3

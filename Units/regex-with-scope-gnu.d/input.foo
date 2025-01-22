@@ -1,0 +1,44 @@
+ns NS1
+define x {
+	define y {
+	       var v_y_0
+	       var v_y_1
+	}
+	define z {
+	       var v_z_0
+	       var v_z_1
+	       define a {
+	       }
+	}
+}
+
+ns NS2
+define p {
+   define q {
+	  print
+   }
+}
+
+global
+var v_g1
+define d_g {
+       var v_l
+}
+
+ns NS3
+package PACKAGE
+define p {
+   define q {
+	  print
+	  {
+		var L
+	  }
+   }
+
+# end of define
+}
+
+# end of package
+end
+
+var v_g2

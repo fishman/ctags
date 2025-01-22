@@ -1,0 +1,10 @@
+--sort=no
+
+--langdef=foo
+--map-foo=.foo
+--kinddef-foo=m,module,modules
+--kinddef-foo=x,exception,exceptions
+
+--regex-foo=/^defmodule\s*(\w+)\s*do/\1/m/{scope=push}
+--regex-foo=/^end//{scope=pop}{placeholder}
+--regex-foo=/\s+defexception(\s+.*)$//x/{_anonymous=exception}{scope=ref}

@@ -1,0 +1,12 @@
+#
+# Taken from commit log subitted by @dreamtigers in #2024.
+#
+defmodule MyAppError1 do
+  defexception [:message]
+  # code
+end
+
+defmodule MyAppError2 do
+  defexception [:message]
+  # code
+end
