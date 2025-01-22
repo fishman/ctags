@@ -1,0 +1,6 @@
+documented-multimethod	input.clj	/^(defmulti documented-multimethod "Documentation"$/;"	M	multimethod.test
+named-method	input.clj	/^(defmethod test :test2 named-method$/;"	m	multimethod.test
+test	input.clj	/^(defmulti test$/;"	M	multimethod.test
+test	input.clj	/^(defmethod test nil$/;"	m	multimethod.test
+test	input.clj	/^(defmethod test :test$/;"	m	multimethod.test
+test	input.clj	/^(defmethod test :test2 named-method$/;"	m	multimethod.test

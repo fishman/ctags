@@ -1,0 +1,6 @@
+const-var	input.clj	/^(def const-var ^:const 'var)$/;"	v	namespace:vars.test
+doc-var	input.clj	/^(def doc-var "Documentation" 'var)$/;"	v	namespace:vars.test
+dynamic-var	input.clj	/^(def dynamic-var ^:dynamic 'var)$/;"	v	namespace:vars.test
+fn-var	input.clj	/^(def fn-var (fn [] true))$/;"	f	namespace:vars.test
+once-var	input.clj	/^(defonce once-var 'evaluated-once)$/;"	v	namespace:vars.test
+var	input.clj	/^(def var 'var)$/;"	v	namespace:vars.test
