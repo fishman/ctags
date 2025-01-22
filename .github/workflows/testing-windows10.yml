@@ -1,0 +1,34 @@
+name: run units target on Windows-10
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  testing:
+    runs-on: windows-latest
+
+    strategy:
+      fail-fast: false
+      matrix:
+        visual-studio-version: [2017, 2019]
+
+    steps:
+    - run: choco install -y visualstudio${{ matrix.visual-studio-version }}buildtools
+    - run: choco install -y visualstudio${{ matrix.visual-studio-version }}-workload-vctools 
+
+    - uses: actions/checkout@v2
+
+    - name: Build with NMake
+      shell: cmd
+      run: |
+        call "C:\Program Files (x86)\Microsoft Visual Studio\${{ matrix.visual-studio-version }}\BuildTools\Common7\Tools\VsDevCmd.bat"
+        nmake -f mk_mvc.mak
+
+    - run: ./ctags --version
+
+    - run: C:\msys64\usr\bin\bash.exe -l -i -c "pacman -S --noconfirm python"
+    - run: C:\msys64\usr\bin\bash.exe -l -i -c "printf 'cd %s' $(cygpath '${{ github.workspace }}') >> ~/.bashrc"
+    - run: C:\msys64\usr\bin\bash.exe -l -i -c "python misc/units.py tmain ./Tmain --ctags=./ctags.exe --readtags=./readtags.exe --show-diff-output --shell=c:/msys64/usr/bin/bash"
