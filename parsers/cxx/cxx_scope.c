@@ -249,11 +249,7 @@ void cxxScopePushTop(CXXToken * t)
 	cxxTokenChainAppend(g_pScope,t);
 	g_bScopeNameDirty = true;
 
-#ifdef CXX_DO_DEBUGGING
-	const char * szScopeName = cxxScopeGetFullName();
-
-	CXX_DEBUG_PRINT("Pushed scope: '%s'",szScopeName ? szScopeName : "");
-#endif
+	CXX_DEBUG_PRINT("Pushed scope: '%s'",cxxScopeGetFullName() ?: "");
 }
 
 CXXToken * cxxScopeTakeTop(void)
@@ -262,15 +258,11 @@ CXXToken * cxxScopeTakeTop(void)
 			g_pScope->iCount > 0,
 			"When popping as scope there must be a scope to pop"
 		);
+	CXX_DEBUG_PRINT("Popped scope: '%s'",cxxScopeGetFullName() ?: "");
 
 	CXXToken * t = cxxTokenChainTakeLast(g_pScope);
 	g_bScopeNameDirty = true;
 
-#ifdef CXX_DO_DEBUGGING
-	const char * szScopeName = cxxScopeGetFullName();
-
-	CXX_DEBUG_PRINT("Popped scope: '%s'",szScopeName ? szScopeName : "");
-#endif
 	return t;
 }
 
