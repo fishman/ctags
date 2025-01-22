@@ -130,8 +130,10 @@ topLevelStatement <-
 # to tag them.
 
 moduleDeclaration <-
-    ('port' _1_)? 'module' _1_ <dottedIdentifier> _1_ 'exposing' _0_ '(' exposedList ')' EOS {
-        elm_module_scope_index = makeElmTagSettingScope(auxil, $1, $1s, K_MODULE, ROLE_DEFINITION_INDEX);
+    (<'port'> _1_)? 'module' _1_ <dottedIdentifier> _1_ 'exposing' _0_ '(' exposedList ')' EOS {
+        elm_module_scope_index = makeElmTagSettingScope(auxil, $2, $2s, K_MODULE, ROLE_DEFINITION_INDEX);
+        if (*$1 != '\0')
+           addElmAccess(elm_module_scope_index, "port");
     }
 
 exposedList <- _0_ exposedItem _0_ (',' _0_ exposedList )*

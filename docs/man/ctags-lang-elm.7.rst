@@ -125,17 +125,38 @@ signature field. They are not really function signatures, but
 it's the closest concept available in ctags.
 Use "--fields=+S".
 
+"input.elm"
+
 .. code-block:: Elm
 
     funcA a1 a2 =
         a1 + a2
 
 "output.tags"
-with "--sort=no --extras=+r --fields=+rS"
+with "--options=NONE -o - --sort=no --extras=+r --fields=+rS input.elm"
 
 .. code-block:: tags
 
     funcA	input.elm	/^funcA a1 a2 =$/;"	f	signature:a1 a2	roles:def
+
+Module where ports are defined
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+If a module is modified with "port", the parser fills the ``access``
+field of the tag for the module with "port".
+
+"input.elm"
+
+.. code-block:: Elm
+
+    port module Main exposing (..)
+
+"output.tags"
+with "--options=NONE -o - --sort=no --fields=+a input.elm"
+
+.. code-block:: tags
+
+    Main	input.elm	/^port module Main exposing (..)$/;"	m	access:port
 
 KNOWN LIMITATIONS
 -----------------

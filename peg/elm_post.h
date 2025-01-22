@@ -86,6 +86,14 @@ static void addElmTypeRef(int scope_index, const char *sig)
 	}
 }
 
+static void addElmAccess(int scope_index, const char *access_)
+{
+	tagEntryInfo *e = getEntryInCorkQueue (scope_index);
+
+	if (e)
+		e->extensionFields.access = eStrdup (access_);
+}
+
 /* There are several steps to making the type of constructors within
  * a custom type:
  *   1. Initialise the fields when we encounter the custom type declaration.
