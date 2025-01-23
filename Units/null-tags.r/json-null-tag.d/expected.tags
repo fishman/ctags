@@ -1,0 +1,31 @@
+<e>	input.json	/^		"<e>": "Empty",$/;"	s	object:legend
+<n>	input.json	/^		"<n>": "Nonempty"$/;"	s	object:legend
+legend	input.json	/^	"legend": {$/;"	o
+	input.json	/^				"":     "Empty",$/;"	s	object:..
+eeen	input.json	/^				"eeen": "Nonempty"$/;"	s	object:..
+	input.json	/^			"": {$/;"	o	object:.
+	input.json	/^				"":     "Empty",$/;"	s	object:..een
+eenn	input.json	/^				"eenn": "Nonempty"$/;"	s	object:..een
+een	input.json	/^			"een": {$/;"	o	object:.
+	input.json	/^				"":     "Empty",$/;"	s	object:.en.
+enen	input.json	/^				"enen": "Nonempty"$/;"	s	object:.en.
+	input.json	/^			"": {$/;"	o	object:.en
+	input.json	/^				"":     "Empty",$/;"	s	object:.en.enn
+ennn	input.json	/^				"ennn": "Nonempty"$/;"	s	object:.en.enn
+enn	input.json	/^			"enn": {$/;"	o	object:.en
+en	input.json	/^		"en": {$/;"	o	object:
+	input.json	/^	"": {$/;"	o
+	input.json	/^				"":     "Empty",$/;"	s	object:n..
+neen	input.json	/^				"neen": "Nonempty"$/;"	s	object:n..
+	input.json	/^			"": {$/;"	o	object:n.
+	input.json	/^				"":     "Empty",$/;"	s	object:n..nen
+nenn	input.json	/^				"nenn": "Nonempty"$/;"	s	object:n..nen
+nen	input.json	/^			"nen": {$/;"	o	object:n.
+	input.json	/^				"":     "Empty",$/;"	s	object:n.nn.
+nnen	input.json	/^				"nnen": "Nonempty"$/;"	s	object:n.nn.
+	input.json	/^			"": {$/;"	o	object:n.nn
+	input.json	/^				"":     "Empty",$/;"	s	object:n.nn.nnn
+nnnn	input.json	/^				"nnnn": "Nonempty"$/;"	s	object:n.nn.nnn
+nnn	input.json	/^			"nnn": {$/;"	o	object:n.nn
+nn	input.json	/^		"nn": {$/;"	o	object:n
+n	input.json	/^	"n": {$/;"	o
