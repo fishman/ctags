@@ -1104,6 +1104,7 @@ EOF
       if (defined $_->{'datatype'}) {
 	  print <<EOF;
 		  .dataType = $_->{'datatype'},
+		  .isValueAvailable = isValueAvailableGeneric,
 		  .getValueObject = getFieldValueGeneric,
 		  .setValueObject = setFieldValueGeneric,
 EOF

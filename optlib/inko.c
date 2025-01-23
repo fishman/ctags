@@ -179,6 +179,7 @@ extern parserDefinition* InkoParser (void)
 		  .name        = "implements",
 		  .description = "Trait being implemented",
 		  .dataType = FIELDTYPE_SCRIPTABLE|FIELDTYPE_STRING,
+		  .isValueAvailable = isValueAvailableGeneric,
 		  .getValueObject = getFieldValueGeneric,
 		  .setValueObject = setFieldValueGeneric,
 		},
