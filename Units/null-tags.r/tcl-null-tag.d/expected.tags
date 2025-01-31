@@ -1,0 +1,11 @@
+	input.tcl	/^proc aaa {} {return Empty }$/;"	p
+aaa	input.tcl	/^proc aaa {} {return Normal}$/;"	p
+a	input.tcl	/^proc {a} {} {return Braced}$/;"	p
+ns1	input.tcl	/^namespace eval ns1 {$/;"	n
+	input.tcl	/^	proc {}  {} {return Empty }$/;"	p	namespace:::ns1
+bbb	input.tcl	/^	proc bbb {} {return Normal}$/;"	p	namespace:::ns1
+b	input.tcl	/^	proc {b} {} {return Braced}$/;"	p	namespace:::ns1
+ns2	input.tcl	/^namespace eval ns2$/;"	n
+	input.tcl	/^proc ns2::    {} {return Empty }$/;"	p	namespace:ns2
+ccc	input.tcl	/^proc ns2::ccc {} {return Normal}$/;"	p	namespace:ns2
+c	input.tcl	/^proc {ns2::c} {} {return Braced}$/;"	p	namespace:ns2

@@ -1,0 +1,14 @@
+	input.sv	/^module \\ ;$/;"	m
+	input.sv	/^	} \\ ;$/;"	S	module:
+	input.sv	/^		} \\ ;$/;"	w	struct:.
+een	input.sv	/^		} \\een ;$/;"	w	struct:.
+en	input.sv	/^	} \\en ;$/;"	S	module:
+	input.sv	/^		} \\ ;$/;"	w	struct:.en
+enn	input.sv	/^		} \\enn ;$/;"	w	struct:.en
+n	input.sv	/^module \\n ;$/;"	m
+	input.sv	/^	} \\ ;$/;"	S	module:n
+	input.sv	/^		} \\ ;$/;"	w	struct:n.
+nen	input.sv	/^		} \\nen ;$/;"	w	struct:n.
+nn	input.sv	/^	} \\nn ;$/;"	S	module:n
+	input.sv	/^		} \\ ;$/;"	w	struct:n.nn
+nnn	input.sv	/^		} \\nnn ;$/;"	w	struct:n.nn

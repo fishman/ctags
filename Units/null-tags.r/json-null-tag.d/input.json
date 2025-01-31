@@ -1,0 +1,50 @@
+{
+	"legend": {
+		"<e>": "Empty",
+		"<n>": "Nonempty"
+	},
+	"": {
+		"": {
+			"": {
+				"":     "Empty",
+				"eeen": "Nonempty"
+			},
+			"een": {
+				"":     "Empty",
+				"eenn": "Nonempty"
+			}
+		},
+		"en": {
+			"": {
+				"":     "Empty",
+				"enen": "Nonempty"
+			},
+			"enn": {
+				"":     "Empty",
+				"ennn": "Nonempty"
+			}
+		}
+	},
+	"n": {
+		"": {
+			"": {
+				"":     "Empty",
+				"neen": "Nonempty"
+			},
+			"nen": {
+				"":     "Empty",
+				"nenn": "Nonempty"
+			}
+		},
+		"nn": {
+			"": {
+				"":     "Empty",
+				"nnen": "Nonempty"
+			},
+			"nnn": {
+				"":     "Empty",
+				"nnnn": "Nonempty"
+			}
+		}
+	}
+}
