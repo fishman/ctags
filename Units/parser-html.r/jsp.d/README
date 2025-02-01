@@ -1,0 +1,6 @@
+JSP tags shouldn't trigger the PHP parser.
+
+This used to happen and trigger an infinite loop of a ping-pong effect
+with the HTML parser asking the PHP parser to parse the JSP block, and
+the PHP parser, not recognizing the input, asking the HTML one to deal
+with it.  Rinse and repeat.

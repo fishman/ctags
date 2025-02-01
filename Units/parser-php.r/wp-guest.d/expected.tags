@@ -1,0 +1,14 @@
+top	input.php	/^<div id="top">$/;"	I	line:3	language:HTML	roles:def
+inner	input.php	/^ <div class="inner">$/;"	c	line:4	language:HTML	roles:attribute
+logo	input.php	/^<div id="logo">$/;"	I	line:6	language:HTML	roles:def
+pages	input.php	/^<div id="pages">$/;"	I	line:12	language:HTML	roles:def
+menubar	input.php	/^<ul class="menubar" id="menubar">$/;"	c	line:13	language:HTML	roles:attribute
+menubar	input.php	/^<ul class="menubar" id="menubar">$/;"	I	line:13	language:HTML	roles:def
+body	input.php	/^<div id="body">$/;"	I	line:26	language:HTML	roles:def
+content	input.php	/^  <main id="content">$/;"	I	line:27	language:HTML	roles:def
+post	input.php	/^  <article class="post" id="post-/;"	c	line:31	language:HTML	roles:attribute
+post-	input.php	/^  <article class="post" id="post-/;"	I	line:31	language:HTML	roles:def
+storybody	input.php	/^    <div class="storybody"><br \/>/;"	c	line:37	language:HTML	roles:attribute
+postmetadata	input.php	/^    <p class="postmetadata"><\/p>$/;"	c	line:38	language:HTML	roles:attribute
+storybody	input.php	/^     <div class="storybody">/;"	c	line:41	language:HTML	roles:attribute
+left	input.php	/^  <aside id="left">/;"	I	line:52	language:HTML	roles:def

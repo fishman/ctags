@@ -339,7 +339,7 @@ getNextChar:
 				ungetcToInputFile (d);
 				token->type = TOKEN_OTHER;
 			}
-			else if (d == '?' || d == '%')
+			else if (d == '?')
 			{
 				skipOtherScriptContent(d);
 				goto getNextChar;

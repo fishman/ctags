@@ -89,6 +89,7 @@ typedef struct sInputFile {
 	vString    *path;          /* path of input file (if any) */
 	vString    *line;          /* last line read from file */
 	const unsigned char* currentLine;  /* current line being worked on */
+	size_t currentLineEndOffset;
 	MIO        *mio;           /* MIO stream used for reading the file */
 	compoundPos    filePosition;  /* file position of current line */
 	unsigned int ungetchIdx;
@@ -159,8 +160,7 @@ extern int getInputLineOffset (void)
 		/* When EOF is saw, currentLine is set to NULL.
 		 * So the way to calculate the offset at the end of file is tricky.
 		 */
-		ret = (mio_tell (File.mio) - (File.bomFound? 3: 0))
-			- getInputFileOffsetForLine(File.input.lineNumber);
+		ret = File.currentLineEndOffset - File.ungetchIdx;
 	}
 	else
 	{
@@ -761,6 +761,7 @@ extern bool openInputFile (const char *const fileName, const langType language,
 		mio_getpos (File.mio, &File.filePosition.pos);
 		File.filePosition.offset = StartOfLine.offset = mio_tell (File.mio);
 		File.currentLine  = NULL;
+		File.currentLineEndOffset = 0;
 
 		File.line = vStringNewOrClear (File.line);
 		File.ungetchIdx = 0;
@@ -799,6 +800,7 @@ extern void resetInputFile (const langType language, bool resetLineFposMap_)
 	mio_getpos (File.mio, &File.filePosition.pos);
 	File.filePosition.offset = StartOfLine.offset = mio_tell (File.mio);
 	File.currentLine  = NULL;
+	File.currentLineEndOffset = 0;
 
 	Assert (File.line);
 	vStringClear (File.line);
@@ -1027,7 +1029,10 @@ extern int getcFromInputFile (void)
 		{
 			vString* const line = iFileGetLine (false);
 			if (line != NULL)
+			{
 				File.currentLine = (unsigned char*) vStringValue (line);
+				File.currentLineEndOffset = vStringLength (line);
+			}
 			if (File.currentLine == NULL)
 				c = EOF;
 			else

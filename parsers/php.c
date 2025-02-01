@@ -861,13 +861,14 @@ static bool isOpenScriptLanguagePhp (int c)
 	return true;
 }
 
-static int findPhpStart (void)
+static int findPhpStart (int *tagStartLineOffset)
 {
 	int c;
 	do
 	{
 		if ((c = getcFromInputFile ()) == '<')
 		{
+			*tagStartLineOffset = getInputLineOffset () - 1;
 			c = getcFromInputFile ();
 			/* <?, <?= and <?php, but not <?xml */
 			if (c == '?')
@@ -933,13 +934,15 @@ getNextChar:
 		unsigned long startSourceLineNumber = getSourceLineNumber ();
 		unsigned long startLineNumber = getInputLineNumber ();
 		int startLineOffset = getInputLineOffset ();
+		int endLineOffset;
 
-		c = findPhpStart ();
+		c = findPhpStart (&endLineOffset);
 		if (c != EOF)
 			InPhp = true;
+		else
+			endLineOffset = getInputLineOffset ();
 
 		unsigned long endLineNumber = getInputLineNumber ();
-		int endLineOffset = getInputLineOffset ();
 
 		makePromise ("HTML", startLineNumber, startLineOffset,
 					 endLineNumber, endLineOffset, startSourceLineNumber);
