@@ -1,2 +1,2 @@
 #LETTER NAME          DESCRIPTION
--       datatype=TYPE acceaptable datatype of the field ([str]|bool|int|str+bool)
+-       datatype=TYPE acceaptable datatype of the field (str|bool|int|str+bool)

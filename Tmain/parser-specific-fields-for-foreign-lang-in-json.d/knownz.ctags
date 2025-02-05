@@ -10,6 +10,3 @@
 
 --_fielddef-knownz=exported,whether the marker is exported or not{datatype=bool}
 --fields-knownz=+{exported}
-
---_fielddef-knownz=stb,string or false{datatype=str+bool}
---fields-knownz=+{stb}

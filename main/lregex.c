@@ -4565,6 +4565,19 @@ static struct optscriptOperatorRegistration lropOperators [] = {
 	},
 };
 
+extern bool installOptscriptFieldAccessor (fieldType ftype)
+{
+	/* This function is called via defineField().
+	   defineField() is called via --fielddef option of built-in parsers
+	   defining their specific fields.
+	   built-in parsers are initialized lazily in the current implementation.
+	   optvm is initialized earlier than parsers. */
+	Assert (!es_null(lregex_dict));
+
+	optscriptInstallFieldAccessor (lregex_dict, ftype);
+	return true;
+}
+
 extern void initRegexOptscript (void)
 {
 	if (!regexAvailable)
@@ -4584,6 +4597,7 @@ extern void initRegexOptscript (void)
 	OPTSCRIPT_ERR_UNKNOWNLANGUAGE = es_error_intern ("unknownlanguage");
 	OPTSCRIPT_ERR_UNKNOWNKIND = es_error_intern ("unknownkind");
 	OPTSCRIPT_ERR_UNKNOWNROLE = es_error_intern ("unknownrole");
+	OPTSCRIPT_ERR_FIELDRESET = es_error_intern ("fieldreset");
 
 	optscriptInstallProcs (lregex_dict, lrop_get_match_string_named_group);
 

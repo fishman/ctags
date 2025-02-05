@@ -61,7 +61,7 @@ my $langdef_flags =
 my $fielddef_flags =
     [
      [ qr/\{datatype=([^\}]+)\}/, sub {
-	 my $datatype = "";
+	 my $datatype = "FIELDTYPE_SCRIPTABLE|";
 
 	 if ($1 eq 'str')
 	 {
@@ -1104,6 +1104,9 @@ EOF
       if (defined $_->{'datatype'}) {
 	  print <<EOF;
 		  .dataType = $_->{'datatype'},
+		  .isValueAvailable = isValueAvailableGeneric,
+		  .getValueObject = getFieldValueGeneric,
+		  .setValueObject = setFieldValueGeneric,
 EOF
       }
       print <<EOF;

@@ -13,6 +13,7 @@
 
 #include "general.h"  /* must always come first */
 
+#include "field.h"
 #include "optscript.h"
 #include "mio.h"
 
@@ -28,10 +29,12 @@ extern void optscriptRegisterOperators(EsObject * dict,
 extern EsObject *OPTSCRIPT_ERR_NOTAGENTRY;
 extern EsObject *OPTSCRIPT_ERR_UNKNOWNLANGUAGE;
 extern EsObject *OPTSCRIPT_ERR_UNKNOWNEXTRA;
+extern EsObject *OPTSCRIPT_ERR_FIELDRESET;
 
 extern OptVM *optscriptInit (void);
 
 extern void optscriptInstallProcs (EsObject *dict, OptOperatorFn matchResultAccessor);
+extern void optscriptInstallFieldAccessor (EsObject *dict, fieldType ftype);
 
 extern void optscriptSetup (OptVM *vm, EsObject *dict, int corkIndex);
 extern void optscriptTeardown (OptVM *vm, EsObject *dict);

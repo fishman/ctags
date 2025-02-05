@@ -40,6 +40,9 @@
 --kinddef-SCSS=M,module,modules
 --_roledef-SCSS.{module}=used,used
 
+--_fielddef-SCSS=module,the name of module behind the namespace{datatype=str}
+--fields-SCSS=+{module}
+
 --_tabledef-SCSS=toplevel
 --_tabledef-SCSS=comment
 --_tabledef-SCSS=interp
@@ -69,18 +72,18 @@
          % module-name offset' count namespace-string
          _copyinterval
          dup length 0 gt {
-            /namespace @1 _tag _commit pop
+            /namespace @1 _tag _commit \1 SCSS.module:
          } {
             clear
          } ifelse
       } {
          % Extract the module name as a namespace.
-         \1 /namespace @1 _tag _commit pop
+         \1 /namespace @1 _tag _commit \1 SCSS.module:
       } ifelse
    } {
      % "as *" doesn't make a namespace.
       \3 (*) ne {
-         \3 /namespace @3 _tag _commit pop
+         \3 /namespace @3 _tag _commit \1 SCSS.module:
       } if
    } ifelse
 }}

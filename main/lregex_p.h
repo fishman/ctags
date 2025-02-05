@@ -19,6 +19,7 @@
 *   INCLUDE FILES
 */
 #include "general.h"
+#include "field.h"
 #include "flags_p.h"
 #include "kind_p.h"
 #include "lregex.h"
@@ -113,6 +114,8 @@ extern void extendRegexTable (struct lregexControlBlock *lcb, const char *src, c
 
 extern void initRegexOptscript (void);
 extern void listRegexOpscriptOperators (FILE *fp);
+
+extern bool installOptscriptFieldAccessor (fieldType ftype);
 
 extern void addOptscriptToHook (struct lregexControlBlock *lcb, enum scriptHook hook, const char *code);
 extern void propagateParamToOptscript (struct lregexControlBlock *lcb, const char *param, const char *value);

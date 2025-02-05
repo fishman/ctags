@@ -39,36 +39,3 @@
        1@ _foreigntag _commit pop
     } if
 }}
-
---regex-unknownx=/^stb:([a-z])$/\1/m/{_language=knownz}{{
-    . :knownz.stb {
-       ==
-    } {
-       /not-set ==
-    } ifelse
-}}
---regex-unknownx=/^stb:([a-z])-$/\1/m/{_language=knownz}{_field=stb:}{{
-    . :knownz.stb {
-       ==
-    } {
-       /not-set ==
-    } ifelse
-}}
---regex-unknownx=/^stb:([a-z])\.(.*)$/\1/m/{_language=knownz}{_field=stb:\2}{{
-    . :knownz.stb {
-       ==
-    } {
-       /not-set ==
-    } ifelse
-}}
-
---regex-unknownx=/^x0:([a-zA-Z])$/\1/m/{_language=knownz}{_field=exported:alpha}{{
-    (# Setting a string to a bool field) =
-    . :knownz.exported pstack clear
-}}
-
-# Setting string to a int field
---regex-unknownx=/^x1:([a-zA-Z])$/\1/m/{_language=knownz}{_field=len:alpha}{{
-    (# Setting a string to a int field) =
-    . :knownz.len pstack clear
-}}

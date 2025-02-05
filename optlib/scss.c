@@ -63,18 +63,18 @@ static void initializeSCSSParser (const langType language)
 		"         % module-name offset' count namespace-string\n"
 		"         _copyinterval\n"
 		"         dup length 0 gt {\n"
-		"            /namespace @1 _tag _commit pop\n"
+		"            /namespace @1 _tag _commit \\1 SCSS.module:\n"
 		"         } {\n"
 		"            clear\n"
 		"         } ifelse\n"
 		"      } {\n"
 		"         % Extract the module name as a namespace.\n"
-		"         \\1 /namespace @1 _tag _commit pop\n"
+		"         \\1 /namespace @1 _tag _commit \\1 SCSS.module:\n"
 		"      } ifelse\n"
 		"   } {\n"
 		"     % \"as *\" doesn't make a namespace.\n"
 		"      \\3 (*) ne {\n"
-		"         \\3 /namespace @3 _tag _commit pop\n"
+		"         \\3 /namespace @3 _tag _commit \\1 SCSS.module:\n"
 		"      } if\n"
 		"   } ifelse\n"
 		"}}", NULL);
@@ -233,6 +233,17 @@ extern parserDefinition* SCSSParser (void)
 		  ATTACH_ROLES(SCSSModuleRoleTable),
 		},
 	};
+	static fieldDefinition SCSSFieldTable [] = {
+		{
+		  .enabled     = true,
+		  .name        = "module",
+		  .description = "the name of module behind the namespace",
+		  .dataType = FIELDTYPE_SCRIPTABLE|FIELDTYPE_STRING,
+		  .isValueAvailable = isValueAvailableGeneric,
+		  .getValueObject = getFieldValueGeneric,
+		  .setValueObject = setFieldValueGeneric,
+		},
+	};
 
 	parserDefinition* const def = parserNew ("SCSS");
 
@@ -246,6 +257,8 @@ extern parserDefinition* SCSSParser (void)
 	def->useCork       = CORK_QUEUE;
 	def->kindTable     = SCSSKindTable;
 	def->kindCount     = ARRAY_SIZE(SCSSKindTable);
+	def->fieldTable    = SCSSFieldTable;
+	def->fieldCount    = ARRAY_SIZE(SCSSFieldTable);
 	def->initialize    = initializeSCSSParser;
 
 	return def;

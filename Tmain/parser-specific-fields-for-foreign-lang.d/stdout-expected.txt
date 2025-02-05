@@ -1,5 +1,34 @@
+# output: tags
+foo	input.unknownx	/^public func foo(n, m);$/;"	f	language:unknownx	protection:public 	signature:(n, m)
 bar	input.unknownx	/^protected func bar(n);$/;"	f	language:unknownx	protection:protected 	signature:(n)
 baz	input.unknownx	/^private func baz(n,...);$/;"	f	language:unknownx	protection:private 	signature:(n,...)
-foo	input.unknownx	/^public func foo(n, m);$/;"	f	language:unknownx	protection:public 	signature:(n, m)
-tagme	input.unknownx	/^X:tagme@iamowner$/;"	m	language:knownz	owner:iamowner
+strset	input.unknownx	/^STR:strset@iamowner$/;"	m	language:knownz	owner:iamowner
+setsetempty	input.unknownx	/^STR:setsetempty@$/;"	m	language:knownz	owner:
+notset	input.unknownx	/^STR:notset$/;"	m	language:knownz
 tagme2	input.unknownx	/^Y:iamowner2=tagme2$/;"	m	language:knownz	owner:iamowner2
+tagme-z	input.unknownx	/^Z:tagme-z@iamowner-z$/;"	m	language:knownz	owner:iamowner-z	len:10	lenplus:11
+a	input.unknownx	/^eset:a$/;"	m	language:knownz	exported:
+b	input.unknownx	/^enoset:b$/;"	m	language:knownz
+9_exported	input.unknownx	/^enoset:b$/;"	m	language:knownz
+o	input.unknownx	/^stb:o$/;"	m	language:knownz
+p	input.unknownx	/^stb:p-$/;"	m	language:knownz	stb:
+q	input.unknownx	/^stb:q.something string$/;"	m	language:knownz	stb:something string
+O	input.unknownx	/^x0:O$/;"	m	language:knownz	exported:
+P	input.unknownx	/^x1:P$/;"	m	language:knownz	len:1
+# output: xref
+foo unknownx / owner:,len:,lenplus:,exported:-,stb: / public (n, m)
+bar unknownx / owner:,len:,lenplus:,exported:-,stb: / protected (n)
+baz unknownx / owner:,len:,lenplus:,exported:-,stb: / private (n,...)
+strset knownz / owner:iamowner,len:,lenplus:,exported:-,stb: / 
+setsetempty knownz / owner:,len:,lenplus:,exported:-,stb: / 
+notset knownz / owner:,len:,lenplus:,exported:-,stb: / 
+tagme2 knownz / owner:iamowner2,len:,lenplus:,exported:-,stb: / 
+tagme-z knownz / owner:iamowner-z,len:10,lenplus:11,exported:-,stb: / 
+a knownz / owner:,len:,lenplus:,exported:exported,stb: / 
+b knownz / owner:,len:,lenplus:,exported:-,stb: / 
+9_exported knownz / owner:,len:,lenplus:,exported:-,stb: / 
+o knownz / owner:,len:,lenplus:,exported:-,stb: / 
+p knownz / owner:,len:,lenplus:,exported:-,stb:- / 
+q knownz / owner:,len:,lenplus:,exported:-,stb:something string / 
+O knownz / owner:,len:,lenplus:,exported:exported,stb: / 
+P knownz / owner:,len:1,lenplus:,exported:-,stb: / 

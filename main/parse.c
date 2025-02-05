@@ -4010,7 +4010,7 @@ static void field_def_flag_datatype_long (const char *const optflag CTAGS_ATTR_U
 	if (*param == '\0')
 		error (FATAL, "no datatype given for field: \"%s\"", fdef->name);
 
-	fdef->dataType = 0;
+	fdef->dataType = FIELDTYPE_SCRIPTABLE;
 	if (strcmp (param, "int") == 0)
 		fdef->dataType |= FIELDTYPE_INTEGER;
 	else if (strcmp (param, "str") == 0)
@@ -4025,7 +4025,7 @@ static void field_def_flag_datatype_long (const char *const optflag CTAGS_ATTR_U
 
 static flagDefinition FieldDefFlagDef [] = {
 	{ '\0', "datatype", NULL, field_def_flag_datatype_long,
-	  "TYPE", "acceaptable datatype of the field ([str]|bool|int|str+bool)" },
+	  "TYPE", "acceaptable datatype of the field (str|bool|int|str+bool)" },
 };
 
 static bool processLangDefineField (const langType language,
@@ -4068,17 +4068,26 @@ static bool processLangDefineField (const langType language,
 	fdef->letter = NUL_FIELD_LETTER;
 	fdef->name = eStrndup(parameter, name_end - parameter);
 	fdef->description = desc;
-	fdef->isValueAvailable = NULL;
-	fdef->getValueObject = NULL;
-	fdef->getterValueType = NULL;
-	fdef->setValueObject = NULL;
-	fdef->setterValueType = NULL;
-	fdef->checkValueForSetter = NULL;
+
 	fdef->dataType = 0;
 	if (flags)
 		flagsEval (flags, FieldDefFlagDef, ARRAY_SIZE (FieldDefFlagDef), fdef);
 	if (!fdef->dataType)
 		fdef->dataType = FIELDTYPE_STRING;
+
+	fdef->isValueAvailable = (fdef->dataType & FIELDTYPE_SCRIPTABLE)
+		? isValueAvailableGeneric
+		: NULL;
+	fdef->getValueObject = (fdef->dataType & FIELDTYPE_SCRIPTABLE)
+		? getFieldValueGeneric
+		: NULL;
+	fdef->getterValueType = NULL;
+	fdef->setValueObject = (fdef->dataType & FIELDTYPE_SCRIPTABLE)
+		? setFieldValueGeneric
+		: NULL;
+	fdef->setterValueType = NULL;
+
+	fdef->checkValueForSetter = NULL;
 	fdef->ftype = FIELD_UNKNOWN;
 	DEFAULT_TRASH_BOX(fdef, fieldDefinitionDestroy);
 
