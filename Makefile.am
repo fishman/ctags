@@ -318,3 +318,9 @@ dist-hook:
 include $(top_srcdir)/makefiles/testing.mak
 
 include $(top_srcdir)/makefiles/help.mak
+
+bashcompletiondir = @bashcompletiondir@
+if BASH_COMPLETION
+dist_bashcompletion_DATA  =
+dist_bashcompletion_DATA += completion/ctags.bash
+endif

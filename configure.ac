@@ -982,6 +982,25 @@ if test "$ETAGS_NAME_EXECUTABLE" != etags ; then
 	AC_MSG_NOTICE(Changing name of 'etags' for $ETAGS_NAME_EXECUTABLE)
 fi
 
+AC_ARG_ENABLE([bash-completion],
+  AS_HELP_STRING([--disable-bash-completion], [do not install bash completion files]),
+  [], [enable_bash_completion=yes]
+)
+AM_CONDITIONAL([BASH_COMPLETION], [test "x$enable_bash_completion" = xyes])
+
+AC_ARG_WITH([bashcompletiondir],
+  AS_HELP_STRING([--with-bashcompletiondir=DIR], [Bash completions directory]),
+  [], [
+  AS_IF([test "x$enable_bash_completion" = xyes], [
+    PKG_CHECK_VAR([with_bashcompletiondir], [bash-completion], [completionsdir],
+      [],
+      [with_bashcompletiondir=${datadir}/bash-completion/completions])
+  ])
+])
+AS_IF([test "x$enable_bash_completion" = xyes], [
+  AC_SUBST([bashcompletiondir], [$with_bashcompletiondir])
+])
+
 # Output files
 # ------------
 
