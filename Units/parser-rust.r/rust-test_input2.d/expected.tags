@@ -1,4 +1,4 @@
-SomeLongStructName	input.rs	/^impl SomeLongStructName {$/;"	c
+SomeLongStructName	input.rs	/^impl SomeLongStructName {$/;"	c	end:27
 SomeLongStructName	input.rs	/^pub struct SomeLongStructName {v:isize}$/;"	s
 SomeStruct	input.rs	/^	pub struct SomeStruct{$/;"	s	module:fruit
 another_function	input.rs	/^	pub fn another_function(a:isize,b:isize,c:isize)->isize {$/;"	f	module:veg	signature:(a:isize,b:isize,c:isize)->isize

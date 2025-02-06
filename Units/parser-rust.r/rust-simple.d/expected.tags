@@ -1,4 +1,4 @@
-Circle	input.rs	/^impl Circle {$/;"	c
+Circle	input.rs	/^impl Circle {$/;"	c	end:17
 Circle	input.rs	/^struct Circle {$/;"	s
 area	input.rs	/^    fn area(&self) -> f64 {$/;"	P	implementation:Circle	signature:(&self) -> f64
 main	input.rs	/^fn main() {$/;"	f	signature:()

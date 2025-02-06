@@ -3,13 +3,13 @@ Animal	input.rs	/^enum Animal {$/;"	g
 B	input.rs	/^pub struct B$/;"	s
 Bar	input.rs	/^struct Bar(isize);$/;"	s
 Baz	input.rs	/^struct Baz(isize);$/;"	s
-C	input.rs	/^impl<T> D<T> for C<T> where T: Send$/;"	c
+C	input.rs	/^impl<T> D<T> for C<T> where T: Send$/;"	c	inherits:D	end:42
 C	input.rs	/^pub struct C<T> where T: Send$/;"	s
 D	input.rs	/^pub trait D<T> where T: Send$/;"	i
 DoZ	input.rs	/^trait DoZ {$/;"	i
-Foo	input.rs	/^impl DoZ for Foo {$/;"	c
-Foo	input.rs	/^impl Foo {$/;"	c
-Foo	input.rs	/^impl Testable for Foo {$/;"	c
+Foo	input.rs	/^impl DoZ for Foo {$/;"	c	inherits:DoZ	end:157
+Foo	input.rs	/^impl Foo {$/;"	c	end:120
+Foo	input.rs	/^impl Testable for Foo {$/;"	c	inherits:Testable	end:151
 Foo	input.rs	/^struct Foo{foo_field_1:isize}$/;"	s
 Foo2	input.rs	/^struct Foo2 {$/;"	s
 N	input.rs	/^const N: usize = 10;$/;"	C
@@ -18,7 +18,7 @@ S1	input.rs	/^struct S1 {$/;"	s
 SomeStruct	input.rs	/^	pub struct SomeStruct;$/;"	s	module:test_input2
 SuperTraitTest	input.rs	/^trait SuperTraitTest:Testable+DoZ {$/;"	i
 Testable	input.rs	/^trait Testable $/;"	i
-TraitedStructTest	input.rs	/^impl<T: Clone> ParametrizedTrait<T> for TraitedStructTest<T> {$/;"	c
+TraitedStructTest	input.rs	/^impl<T: Clone> ParametrizedTrait<T> for TraitedStructTest<T> {$/;"	c	inherits:ParametrizedTrait	end:182
 TraitedStructTest	input.rs	/^struct TraitedStructTest<X> {$/;"	s
 a	input.rs	/^	a: T$/;"	m	struct:C
 a_anteater	input.rs	/^	a_anteater(isize),$/;"	e	enum:Animal
