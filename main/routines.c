@@ -311,6 +311,25 @@ extern char* strrstr (const char *str, const char *substr)
 	return NULL;
 }
 
+extern char* strrpbrk (const char *str, const char *accept)
+{
+	char *last, *tmp;
+
+	tmp = (char *)str;
+	last = NULL;
+
+	while (1)
+	{
+		tmp = strpbrk (tmp, accept);
+		if (tmp == NULL)
+			break;
+		last = tmp;
+		if (*++tmp == '\0')
+			break;
+	}
+	return last;
+}
+
 extern char* eStrdup (const char* str)
 {
 	char* result = xMalloc (strlen (str) + 1, char);

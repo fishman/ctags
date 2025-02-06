@@ -53,6 +53,7 @@ unsigned int opt_vm_ostack_count (OptVM *vm);
 
 EsObject *opt_dict_new       (unsigned int size);
 bool      opt_dict_known_and_get_cstr (EsObject *dict, const char* name, EsObject **val);
+bool      opt_dict_known_and_get (EsObject *dict, EsObject *key, EsObject **val);
 bool      opt_dict_foreach   (EsObject *dict, bool (* fn) (EsObject *, EsObject *, void*), void *data);
 void      opt_dict_def       (EsObject *dict, EsObject *sym, EsObject *val);
 bool      opt_dict_undef     (EsObject *dict, EsObject *sym);

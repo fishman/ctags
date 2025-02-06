@@ -14,6 +14,7 @@
 
 #include "debug.h"
 #include "dependency.h"
+#include "entry.h"
 #include "options.h"
 #include "parse_p.h"
 #include "read.h"
@@ -184,14 +185,18 @@ extern void notifyMakeTagEntry (const tagEntryInfo *tag, int corkIndex)
 {
 	subparser *s;
 
+	/* running optscript code attaching to --makeTagEntryReflection-<LANG> */
+	langType lang = tag->langType;
+	notifyLanguageRegexMakeTagEntry (lang, corkIndex);
+
 	foreachSubparser(s, false)
 	{
+		enterSubparser(s);
 		if (s->makeTagEntryNotify)
-		{
-			enterSubparser(s);
 			s->makeTagEntryNotify (s, tag, corkIndex);
-			leaveSubparser();
-		}
+		/* propagate the event recursively */
+		notifyMakeTagEntry (tag, corkIndex);
+		leaveSubparser();
 	}
 }
 

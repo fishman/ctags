@@ -1,0 +1,79 @@
+# See #3020 and #3027.
+
+--sort=no
+--extras=+q
+
+--_extradef-Markdown=withfname,appending input filename
+--extras-Markdown=+{withfname}
+
+--_prelude-Markdown={{
+    % You can customize the string combining the original name
+    % and the basen name of input file.
+    /SEP (@) def
+
+    % dict<original-index:int, withfname-index:int>
+    /scope-remapping-table 31 dict def
+
+    % (abc/input.d) dropext => (abc/input)
+    % (abc.d/input) dropext => (abc.d/input)
+    /dropext {
+        (/.) _strrpbrk {
+            % string offset
+            2 copy get ?/ eq {
+                pop
+            } {
+                0 exch 0 string _copyinterval
+            } ifelse
+        } if
+    } def
+
+    % (abc/efg) basename => (efg)
+    /basename {
+        ?/ _strrchr {
+            1 add dup 2 index length exch sub
+            0 string _copyinterval
+        } if
+    } def
+}}
+
+--_sequel-Markdown={{
+    % Fill the scope field of withfname extra tags.
+    scope-remapping-table {
+        % Make the original tag invisible
+        exch dup _markplaceholder
+        :scope dup
+        % withfname-index:int original-scope:int original-scope:int
+        0 eq {
+            pop pop
+        } {
+            % withfname-index:int original-scope:int
+            scope-remapping-table exch get
+            % withfname-index:int withfname-scope:int
+            scope:
+        } ifelse
+    } forall
+}}
+
+--_makeTagEntryReflection-Markdown={{
+    /Markdown.withfname _extraenabled {
+        . :extras {
+            /Markdown.withfname _amember not
+        } {
+            true
+        } ifelse
+        {
+            mark
+            . :name
+            SEP
+            . :input dropext basename
+            _buildstring
+
+            . :kind
+            . _tagloc _tag dup /Markdown.withfname _markextra
+            _commit
+            % Record the pair of original-index:int and withfname-index:int.
+            scope-remapping-table . 3 -1 roll put
+        } if
+
+    } if
+}}

@@ -4,6 +4,7 @@ buildstring.ps...0
 chop.ps...0
 dedup.ps...0
 dedup_spaces.ps...0
+endwith.ps...0
 ndup.ps...0
 normalize_spaces.ps...0
 putlast.ps...0

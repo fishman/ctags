@@ -28,8 +28,6 @@ extern subparser *getFirstSubparser(struct slaveControlBlock *controlBlock);
 
 /* A base parser doesn't have to call the following three functions.
    The main part calls them internally. */
-extern void notifyInputStart (void);
-extern void notifyInputEnd   (void);
 extern void notifyMakeTagEntry (const tagEntryInfo *info, int corkIndex);
 
 extern void setupSubparsersInUse (struct slaveControlBlock *controlBlock);

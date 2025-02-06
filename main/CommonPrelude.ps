@@ -264,3 +264,27 @@
         _foreignreftag
     } ifelse
 } __bddef
+
+(string end:string _ENDWITH boolean)
+/_endwith {
+    2 copy length exch length exch
+    % str endstr strlen endstrlen
+    2 copy
+    ge {
+        % str endstr strlen endstrlen
+        dup 3 1 roll
+        % str endstr endstrlen strlen endstrlen
+        sub
+        % str endstr endstrlen offset
+        exch
+        % str endstr offset endstrlen
+        4 -1 roll
+        % endstr offset endstrlen str
+        3 1 roll
+        % str endstr str offset endstrlen
+        0 string _copyinterval eq
+    } {
+        pop pop pop pop false
+    } ifelse
+} __bddef
+% (input.md) (.md) _endwith ==

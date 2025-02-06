@@ -378,6 +378,8 @@ static optionDescription LongOptionDescription [] = {
  {1,1,"       Define new extra for <LANG>. --extras-<LANG>=+{name} enables it."},
  {1,1,"  --_fielddef-<LANG>=<name>,<description>"},
  {1,1,"       Define new field for <LANG>."},
+ {1,1,"  --_makeTagEntryReflection-<LANG>={{ optscript-code }}"},
+ {1,1,"       Specify code run when <LANG> parser makes a tag."},
  {1,1,"  --_mtable-extend-<LANG>=disttable+srctable."},
  {1,1,"       Copy patterns of a regex table to another regex table."},
  {1,1,"  --_mtable-regex-<LANG>=<table>/<line_pattern>/<name_pattern>/[<flags>]"},
@@ -3405,6 +3407,8 @@ static void processLongOption (
 	else if (processPreludeOption (option, parameter))
 		;
 	else if (processSequelOption (option, parameter))
+		;
+	else if (processMakeTagEntryReflectionOption (option, parameter))
 		;
 	else if (processPretendOption (option, parameter))
 		;

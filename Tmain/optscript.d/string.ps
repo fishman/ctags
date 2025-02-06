@@ -62,3 +62,35 @@
 
 ((a.b;c) false ->)
 (a.b;c) (,-) _strpbrk pstack clear
+
+(--------------- _strrpbrk ---------------) ==
+
+(x/abc.d|./) =
+(x/abc.d) (./) _strrpbrk pstack clear
+
+(x/abc.|./) =
+(x/abc.) (./) _strrpbrk pstack clear
+
+(x.abc/d|./) =
+(x.abc/d) (./) _strrpbrk pstack clear
+
+(x.abc/|./) =
+(x.abc/) (./) _strrpbrk pstack clear
+
+(x.abc.d|./) =
+(x.abc.d) (./) _strrpbrk pstack clear
+
+(x.abc.|./) =
+(x.abc.) (./) _strrpbrk pstack clear
+
+(abc|./) =
+(abc) (./) _strrpbrk pstack clear
+
+(|./) =
+() (./) _strrpbrk pstack clear
+
+(abc|) =
+(abc) () _strrpbrk pstack clear
+
+(|) =
+() () _strrpbrk pstack clear

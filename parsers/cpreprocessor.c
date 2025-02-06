@@ -16,6 +16,7 @@
 #include <string.h>
 
 #include "debug.h"
+#include "dependency.h"			/* notifyInputStart, notifyInputEnd */
 #include "entry.h"
 #include "htable.h"
 #include "x-cpreprocessor.h"
@@ -392,6 +393,14 @@ static void cppInitCommon(langType clientLang,
 								   : clientLang) & CORK_SYMTAB))
 		? makeMacroTable ()
 		: NULL;
+
+	if (Cpp.lang != Cpp.clientLang
+		&& Cpp.clientLang != LANG_IGNORE)
+	{
+		pushLanguage (Cpp.lang);
+		notifyInputStart ();
+		popLanguage ();
+	}
 }
 
 extern void cppInit (const bool state, const bool hasAtLiteralStrings,
@@ -427,6 +436,14 @@ static void cppClearMacroInUse (cppMacroInfo **pM)
 
 extern void cppTerminate (void)
 {
+	if (Cpp.lang != Cpp.clientLang
+		&& Cpp.clientLang != LANG_IGNORE)
+	{
+		pushLanguage (Cpp.lang);
+		notifyInputEnd ();
+		popLanguage ();
+	}
+
 	if (Cpp.directive.name != NULL)
 	{
 		vStringDelete (Cpp.directive.name);

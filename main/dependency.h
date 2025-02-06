@@ -43,4 +43,9 @@ struct sSlaveParser {
 	slaveParser *next;
 };
 
+/* These are for CPreProcessor.
+ * Don't use in the other parsers. */
+extern void notifyInputStart (void);
+extern void notifyInputEnd   (void);
+
 #endif	/* CTAGS_MAIN_DEPENDENCY_H */

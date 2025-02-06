@@ -1,0 +1,7 @@
+ABC@input	input.md	/^# ABC$/;"	c
+DEF@input	input.md	/^## DEF$/;"	s	chapter:ABC@input
+GHI@input	input.md	/^### GHI$/;"	S	section:ABC@input""DEF@input
+HIJ@input	input.md	/^### HIJ$/;"	S	section:ABC@input""DEF@input
+KLM@input	input.md	/^## KLM$/;"	s	chapter:ABC@input
+OPQ@input	input.md	/^# OPQ$/;"	c
+RST@input	input.md	/^### RST$/;"	S	chapter:OPQ@input

@@ -107,6 +107,7 @@ extern bool matchMultitableRegex (struct lregexControlBlock *lcb, const vString*
 
 extern void notifyRegexInputStart (struct lregexControlBlock *lcb);
 extern void notifyRegexInputEnd (struct lregexControlBlock *lcb);
+extern void notifyRegexMakeTagEntry (struct lregexControlBlock *lcb, int corkIndex);
 
 extern void addRegexTable (struct lregexControlBlock *lcb, const char *name);
 extern void extendRegexTable (struct lregexControlBlock *lcb, const char *src, const char *dist);

@@ -2249,6 +2249,17 @@ extern void notifyRegexInputEnd (struct lregexControlBlock *lcb)
 	fillEndLineFieldOfUpperScopes (lcb, endline);
 }
 
+extern void notifyRegexMakeTagEntry (struct lregexControlBlock *lcb,
+									 int corkIndex)
+{
+	if (ptrArrayCount (lcb->hook[SCRIPT_HOOK_MAKE_TAG_ENTRY_REFLECTION]) > 0)
+	{
+		optscriptSetup (optvm, lcb->local_dict, corkIndex);
+		scriptEvalHook (optvm, lcb, SCRIPT_HOOK_MAKE_TAG_ENTRY_REFLECTION);
+		optscriptTeardown (optvm, lcb->local_dict);
+	}
+}
+
 extern void findRegexTagsMainloop (int (* driver)(void))
 {
 	/* merely read all lines of the file */

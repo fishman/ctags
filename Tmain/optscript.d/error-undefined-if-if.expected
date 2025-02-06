@@ -4,4 +4,4 @@ top|   |bottom
 Execution stack:
 top|   a   {a}   --if--   {true {a} if}   --if--   |bottom
 Dictionary stack:
-top|   -dict:1-   -dict:89-   |bottom
+top|   -dict:1-   -dict:90-   |bottom

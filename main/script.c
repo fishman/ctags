@@ -289,27 +289,37 @@ extern void optscriptInstallProcs (EsObject *dict,
 }
 
 static EsObject *optscript_CorkIndex_sym = es_nil;
+static ptrArray *corkIndexStack;
 extern void optscriptSetup (OptVM *vm, EsObject *dict, int corkIndex)
 {
+	if (es_null (optscript_CorkIndex_sym))
+		optscript_CorkIndex_sym = es_symbol_intern (".");
+	if (corkIndexStack == NULL)
+		corkIndexStack = ptrArrayNew ((ptrArrayDeleteFunc)es_object_unref);
+
+	/* Push the last '.' to corkIndexStack. */
+	EsObject *last = es_false;
+	opt_dict_known_and_get (dict, optscript_CorkIndex_sym, &last);
+	ptrArrayAdd (corkIndexStack, es_object_ref (last));
+
 	if (corkIndex != CORK_NIL)
 	{
-		static EsObject *corkIndex_sym = es_nil;
-		if (es_null (corkIndex_sym))
-			corkIndex_sym = es_symbol_intern (".");
 		EsObject *corkIndex_val = es_integer_new (corkIndex);
-		opt_dict_def (dict, corkIndex_sym, corkIndex_val);
+		opt_dict_def (dict, optscript_CorkIndex_sym, corkIndex_val);
 		es_object_unref (corkIndex_val);
-		optscript_CorkIndex_sym = corkIndex_sym;
 	}
 }
 
 extern void optscriptTeardown (OptVM *vm, EsObject *dict)
 {
-	if (!es_null (optscript_CorkIndex_sym))
-	{
+	if (opt_dict_known_and_get (dict, optscript_CorkIndex_sym, NULL))
 		opt_dict_undef (dict, optscript_CorkIndex_sym);
-		optscript_CorkIndex_sym = es_nil;
-	}
+
+	/* Pop the last '.'. */
+	EsObject *index = ptrArrayLast (corkIndexStack);
+	if (!es_object_equal (index, es_false))
+		opt_dict_def (dict, optscript_CorkIndex_sym, index);
+	ptrArrayDeleteLast(corkIndexStack);
 }
 
 extern EsObject *optscriptRead (OptVM *vm, const char *src, size_t len)
